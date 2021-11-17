@@ -64,5 +64,3 @@ export const getStaticProps = async (ctx) => {
     }
 
 }
-
-
