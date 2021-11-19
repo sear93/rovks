@@ -1,4 +1,4 @@
-import React, {useContext, useEffect} from 'react';
+import React, {useContext} from 'react';
 import axios from "axios";
 import {useForm, useFormState} from "react-hook-form";
 import GlobalContext from "../store/global-context";
@@ -16,16 +16,13 @@ const Form = () => {
             message: "Pending",
             status: "pending"
         }).then(() => {
-            console.log('pending')
             axios.post(`/api/quotes`, data)
                 .then(() => {
                     ctx.showNotification({
                         message: "Success",
                         status: "success"
                     })
-                    console.log('success')
                     reset();
-                    // ctx.hideNotification();
                 })
                 .catch((err) => {
                     ctx.showNotification({
@@ -33,13 +30,8 @@ const Form = () => {
                         status: "error"
                     })
                 })
-            console.log(ctx)
         })
     };
-
-    // useEffect(() => {
-    //     console.log(ctx)
-    // }, [ctx])
 
     let maxLength = (length) => {
         return <p className={"error"}

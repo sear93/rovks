@@ -2,31 +2,30 @@ import {createContext, useState} from "react";
 
 
 const GlobalContext = createContext({
-    notification: {
-        message: "Success",
-        status: "success"
+    notification: {},
+    showNotification: (data) => {
     },
-    showNotification: (data) => {},
-    hideNotification: () => {},
+    hideNotification: () => {
+    },
 })
 
 export const GlobalContextProvider = (props) => {
 
-    const [notification, setNotification] = useState({})
+    const [formNotification, setFormNotification] = useState({})
 
     const showNotificationHandler = async (data) => {
-        await setNotification({
+        setFormNotification({
             message: data.message,
             status: data.status,
         })
     }
 
     const hideNotificationHandler = async () => {
-        setNotification(null)
+        setFormNotification(null)
     }
 
     const context = {
-        notification: notification,
+        notification: formNotification,
         showNotification: showNotificationHandler,
         hideNotification: hideNotificationHandler
     }

@@ -18,7 +18,7 @@ const Notification = (props) => {
     }, [ctx.notification]);
 
     return (
-        <NotificationWrapper status={props.status} onClick={ctx.hideNotification}>
+        <NotificationWrapper status={props.status} onClick={props.hideNotification}>
             <h3>{props.message}</h3>
         </NotificationWrapper>
     );

@@ -1,9 +1,15 @@
-import React, {useState, cloneElement} from "react";
+import React, {useContext} from "react";
 import Head from "next/head";
 import {Footer} from "./Footer";
 import {Header} from "./Header";
+import GlobalContext from "../store/global-context";
+import Notification from "./Notification";
 
 export const MainLayout = (props) => {
+
+    const ctx = useContext(GlobalContext);
+
+    console.log(ctx)
 
     return (
         <>
@@ -16,10 +22,13 @@ export const MainLayout = (props) => {
                     rel="stylesheet"/>
             </Head>
             <Header logo={props.logo} menuItems={props.menuItems}/>
-            <main className="site-content" >
+            <main className="site-content">
                 {props.children}
             </main>
             <Footer options={props.options}/>
+            {ctx.notification && <Notification status={ctx.notification.status}
+                                               message={ctx.notification.message}
+                                               hideNotification={ctx.hideNotification}/>}
         </>
     )
 }
