@@ -10,10 +10,11 @@ import {useEffect} from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-//Binding events.
+// Binding events.
 Router.events.on('routeChangeStart', () => NProgress.start());
 Router.events.on('routeChangeComplete', () => NProgress.done());
 Router.events.on('routeChangeError', () => NProgress.done());
+
 NProgress.configure({
     minimum: 0.15,
     easing: 'ease',

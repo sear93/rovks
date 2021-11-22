@@ -1,6 +1,7 @@
 import Link from "next/link";
 import {RelatedUpdated} from "../styled/relatedPosts";
 import React from "react";
+import Image from "next/image";
 
 export const NewsComponent = (props) => {
 
@@ -21,8 +22,12 @@ export const NewsComponent = (props) => {
                                      data-aos-duration="3000">
                                     <Link href={`/blog/${post.slug}`}>
                                         <a className="grid-item-link">
-                                            <img src={post.thumbnail}
-                                                 alt=""/>
+                                            <Image src={post.thumbnail}
+                                                   alt={post.slug}
+                                                   placeholder={"blur"}
+                                                   width={700}
+                                                   height={700}
+                                            />
                                             <h5>
                                                 {post.title}
                                             </h5>

@@ -18,11 +18,9 @@ const WorksCard = ({post}) => {
                         <Image className="works-item__img"
                                src={post.thumbnail ?? workItemImg}
                                placeholder={"blur"}
-                               layout='fill'
+                               width={700}
+                               height={700}
                                alt="image"/>
-                        {/*<img className="works-item__img"*/}
-                        {/*     src={post.thumbnail ?? workItemImg}*/}
-                        {/*     alt="image"/>*/}
                         <div className="works-item-content">
                             <h3 className="works-item__name">{post.title}</h3>
                             <h3 className="works-item__type">

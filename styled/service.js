@@ -20,11 +20,20 @@ export const ServiceWrapper = styled.section`
     justify-content: center;
     padding: 0 35px 0 0;
 
+    @media screen and (max-width: 768px) {
+      padding: unset;
+    }
+
     h3 {
       margin: 0 0 30px 0;
       color: #08150a;
       font-size: 50px;
       font-weight: 700;
+
+      @media screen and (max-width: 768px) {
+        font-size: 42px;
+        margin: 0 0 20px 0;
+      }
     }
 
     p {
@@ -33,10 +42,18 @@ export const ServiceWrapper = styled.section`
       color: #08150a;
       font-size: 18px;
       font-weight: 400;
+
+      @media screen and (max-width: 768px) {
+        margin: 0 0 40px 0;
+      }
     }
 
     button {
       align-self: flex-start;
+
+      @media screen and (max-width: 768px) {
+        align-self: center;
+      }
     }
 
     @media screen and (max-width: 768px) {
@@ -83,13 +100,8 @@ export const ServiceWrapper = styled.section`
       }
     }
 
-    .service-item-img {
-      width: 25px;
-      margin: 0 0 30px 0;
-    }
-
     .service-item-title {
-      margin: 0 0 20px 0;
+      margin: 30px 0 20px 0;
       color: #232323;
       font-size: 24px;
       font-weight: 700;

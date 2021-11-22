@@ -11,6 +11,10 @@ export const WorksWrapper = styled.section`
       font-family: "Roboto", sans-serif;
       color: #221c25;
       font-size: 60px;
+
+      @media screen and (max-width: 768px) {
+        text-align: center;
+      }
     }
 
     @media screen and (max-width: 768px) {
@@ -80,12 +84,17 @@ export const WorksWrapper = styled.section`
 
   a {
     color: #000;
+    font-size: 0;
     height: 100%;
   }
 
   .works-group {
     display: flex;
     align-items: center;
+
+    @media screen and (max-width: 768px) {
+      flex-direction: column;
+    }
   }
 
   .works__btn {
@@ -100,12 +109,20 @@ export const WorksWrapper = styled.section`
     color: #6f7799;
     font-size: 20px;
 
+    @media screen and (max-width: 768px) {
+      padding: 15px 0 0 0;
+    }
+
     &.red {
       color: #ff6d04;
     }
 
     &:last-child {
       padding: 10px 0 0 12px;
+
+      @media screen and (max-width: 768px) {
+        padding: 15px 0 0 0;
+      }
     }
 
     &:hover {

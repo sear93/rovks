@@ -27,15 +27,9 @@ export const ServicesWrapper = styled.section`
     @media screen and (max-width: 768px) {
       width: calc(100% - 20px);
     }
-    
-
-    .img {
-      width: 42px;
-      margin: 0 0 50px 0;
-    }
 
     .title {
-      margin: 0 0 20px 0;
+      margin: 50px 0 20px 0;
       color: #232323;
       font-size: 24px;
       font-weight: 700;

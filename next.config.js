@@ -7,8 +7,8 @@ module.exports = {
         domains: ['wp-dev.space'],
     },
     // i18n: {
-    //     locales: [' ', 'en', 'fr', 'de', 'sv'],
-    //     defaultLocale: ' ',
+    //     locales: ['en', 'fr', 'de', 'sv'],
+    //     defaultLocale: 'en',
     //     localeDetection: false
     // },
 }

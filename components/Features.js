@@ -8,12 +8,13 @@ export const Features = (props) => {
             <div className={`container ${props.reverse ? 'row-reverse' : 'row'}`}
                  data-aos="fade-down"
                  data-aos-duration="2000">
-                <Image src={"/images/2-layers.png"}
-                       className="feature-img"
-                       placeholder={"blur"}
-                       width={445}
-                       height={500}
-                />
+                <div className="feature-img">
+                    <Image src={"/images/2-layers.png"}
+                           placeholder={"blur"}
+                           width={445}
+                           height={500}
+                    />
+                </div>
 
                 <div className="feature-content">
                     <h3>

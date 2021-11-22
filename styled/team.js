@@ -14,18 +14,17 @@ export const TeamWrapper = styled.section`
   .team-items {
     display: flex;
     justify-content: center;
-    margin: -20px -10px;
+    gap: 30px;
     @media screen and (max-width: 768px) {
       flex-direction: column;
-      gap: 30px;
     }
   }
 
   .team-item {
     position: relative;
     display: flex;
-    width: calc(33.33% - 20px);
-    margin: 20px 10px;
+    width: 33.33%;
+    margin: 15px 0;
     flex-direction: column;
     align-items: center;
     text-align: center;

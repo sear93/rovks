@@ -3,6 +3,10 @@ import styled from "styled-components";
 export const RelatedUpdated = styled.div`
   margin: 100px 0 0 0;
 
+  @media screen and (max-width: 768px) {
+    margin: 30px 0 0 0;
+  }
+
   .related-posts {
     &-title {
       font-style: normal;
@@ -32,6 +36,10 @@ export const RelatedUpdated = styled.div`
       justify-content: flex-start;
       grid-gap: 30px;
       margin: 80px 0 120px 0;
+
+      @media screen and (max-width: 768px) {
+        margin: 40px 0 60px 0;
+      }
 
       .grid-item {
         width: 100%;

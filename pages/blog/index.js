@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
 import {BlogWrapper} from "../../styled/blog";
 import axios from "axios";
 import Link from "next/link";
@@ -6,18 +6,13 @@ import {changeDate} from "../../helpers/utils";
 import Pagination from "../../components/Pagination";
 import {useRouter} from "next/router";
 import {LoaderComponent} from "../../components/Loader";
+import Image from "next/image";
 
 const Blog = (props) => {
 
     const router = useRouter();
     const [posts, setPosts] = useState(props.posts)
     const [isLoading, setIsLoading] = useState(false)
-
-    // useEffect(() => {
-    //     (async function () {
-    //
-    //     })()
-    // }, [currentPage]);
 
     const onPageChangedHandler = async (pageNumber) => {
 
@@ -60,9 +55,13 @@ const Blog = (props) => {
                                      data-aos-duration="3000">
                                     <Link href={`/blog/${post.slug}`}>
                                         <a>
-                                            <img className="img"
-                                                 alt={post?.title}
-                                                 src={post?.thumbnail}/>
+                                            <Image src={post?.thumbnail}
+                                                   alt={post?.title}
+                                                   className="img"
+                                                   placeholder={"blur"}
+                                                   width={500}
+                                                   height={500}
+                                            />
                                             <div className="content">
                                                 <h4 className="title">{post?.title}</h4>
                                                 <p className="date">

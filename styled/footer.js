@@ -4,6 +4,10 @@ export const FooterWrapper = styled.footer`
   background-color: #f9f9f9;
   padding: 120px 0;
 
+  @media screen and (max-width: 768px) {
+    padding: 60px 0;
+  }
+
   .nav-footer {
     display: flex;
     justify-content: flex-start;
@@ -65,7 +69,18 @@ export const FooterWrapper = styled.footer`
     justify-content: space-between;
     margin-top: 50px;
 
+    @media screen and (max-width: 768px) {
+      flex-direction: column;
+    }
+
     .social {
+
+      @media screen and (max-width: 768px) {
+        display: flex;
+        justify-content: center;
+        margin: 0 0 20px 0;
+      }
+
       &__link {
         text-decoration: none;
         color: #8b8b8b;
@@ -94,6 +109,10 @@ export const FooterWrapper = styled.footer`
       letter-spacing: normal;
       line-height: normal;
       margin: 0 15px 0 0;
+
+      @media screen and (max-width: 768px) {
+        text-align: center;
+      }
     }
   }
 `

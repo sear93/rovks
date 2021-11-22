@@ -3,6 +3,8 @@ import styled from "styled-components";
 export const PostWrapper = styled.div`
   .attachment-post-thumbnail {
     width: 100%;
+    object-fit: cover;
+    object-position: center;
   }
 
   .entry {

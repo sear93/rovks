@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {WorksWrapper} from "../styled/works";
 import WorksButton from "./WorksButton";
 import WorksCard from "./WorksCard";
@@ -7,6 +7,12 @@ export const Works = ({worksItems, workTypes}) => {
 
     const [works, setWorks] = useState(worksItems);
     const [activeClass, setActiveClass] = useState(0)
+    const [width, setWidth] = useState(0);
+
+
+    useEffect(() => {
+        setWidth(window.innerWidth)
+    }, []);
 
     const filter = (e) => {
 
@@ -52,7 +58,7 @@ export const Works = ({worksItems, workTypes}) => {
                 </div>
 
                 <div className="works-items">
-                    {works.slice(0, 6).map((post) => {
+                    {works.slice(0, width >= 768 ? 6 : 3).map((post) => {
                         return <WorksCard post={post} key={post.id}/>
                     })}
                 </div>

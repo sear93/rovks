@@ -1,11 +1,10 @@
-import {useEffect} from 'react'
 import Link from "next/link";
 import {HeaderWrapper} from "../styled/header";
 import React, {useState} from "react";
 
 export const Header = (props) => {
 
-    const [activeClass, setActiveClass] = useState(285);
+    const [activeClass, setActiveClass] = useState(6);
     const [mobileMenu, setMobileMenu] = useState(false)
     const [menuOpen, setMenuOpen] = useState(false)
     const [lockBody, setLockBody] = useState(false)
@@ -25,11 +24,9 @@ export const Header = (props) => {
 
     return (
         <HeaderWrapper>
-            <style jsx global>{`
-              body {
-                overflow: ${lockBody ? "hidden" : "auto"};
-              }
-            `}</style>
+            <style jsx global>{` body {
+              overflow: ${lockBody ? "hidden" : "auto"}
+            }`}</style>
             <div className="banner-overlay"/>
             <div className="container">
                 <Link href="/">

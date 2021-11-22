@@ -2,8 +2,9 @@ import styled from "styled-components";
 
 export const FeaturesWrapper = styled.section`
   padding: 70px 0;
+
   @media screen and (max-width: 768px) {
-    padding: 30px 0 0 0;
+    padding: 50px 0;
   }
 
   .row,
@@ -28,6 +29,11 @@ export const FeaturesWrapper = styled.section`
         margin: 0 0 30px 0;
         color: #08150a;
         font-size: 50px;
+
+        @media screen and (max-width: 768px) {
+          font-size: 42px;
+          margin: 0 0 20px 0;
+        }
       }
 
       p {
@@ -42,14 +48,27 @@ export const FeaturesWrapper = styled.section`
       button {
         margin: 80px 0 0 0;
         align-self: flex-start;
+
+        @media screen and (max-width: 768px) {
+          align-self: center;
+        }
+
+        @media screen and (max-width: 768px) {
+          margin: 40px 0 0 0;
+        }
       }
     }
 
     .feature-img {
       margin: 0 20px;
-      transform: ${props => props.reverse ? '' : 'rotateY(180deg);'};
+
+      img {
+        transform: ${props => props.reverse ? '' : 'rotateY(180deg);'};
+      }
+
       @media screen and (max-width: 768px) {
         margin: 0 20px 30px 20px;
+        width: 80%;
       }
     }
   }

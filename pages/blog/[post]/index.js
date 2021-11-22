@@ -3,25 +3,21 @@ import axios from "axios";
 import {PostWrapper} from "../../../styled/post";
 import {NewsComponent} from "../../../components/RelatedNews";
 import {changeDate} from "../../../helpers/utils";
-// import {useRouter} from "next/router";
+import Image from "next/image";
 
 const Post = ({post, relatedPosts}) => {
-
-    // const router = useRouter()
-    //
-    // if (router.isFallback) {
-    //     return <div>Loading...</div>
-    // }
 
     return (
         <PostWrapper>
             <article>
                 <div className={"container"}>
-                    <img className={"attachment-post-thumbnail"}
-                         src={post?.thumbnail}
-                         alt={post?.title}
-                         data-aos="fade-in"
-                         data-aos-duration="2000"/>
+                    <Image src={post?.thumbnail}
+                           alt={post?.title}
+                           className={"attachment-post-thumbnail"}
+                           placeholder={"blur"}
+                           width={1200}
+                           height={650}
+                    />
                     <div className={"entry-header"}>
                         <h1 data-aos="fade-in"
                             data-aos-duration="2000"

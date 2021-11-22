@@ -15,9 +15,13 @@ const Notification = (props) => {
 
     useEffect(() => {
 
-        const timer = setTimeout(() => {
-            ctx.hideNotification()
-        }, 5000)
+        let timer;
+
+        if (ctx.notification?.status !== 'error') {
+            timer = setTimeout(() => {
+                ctx.hideNotification()
+            }, 5000)
+        }
 
         return () => {
             clearTimeout(timer)

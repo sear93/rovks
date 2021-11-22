@@ -7,6 +7,10 @@ export const BlogWrapper = styled.div`
     justify-content: flex-start;
     min-height: 600px;
     margin: 0 -15px 50px;
+
+    @media screen and (max-width: 768px) {
+      margin: 0 0 50px;
+    }
   }
 
   .heading {
@@ -82,14 +86,7 @@ export const BlogWrapper = styled.div`
 
     @media screen and (max-width: 500px) {
       width: 100%;
-      margin: 5px;
+      margin: 0 0 30px 0;
     }
   }
-
-  //.pagination {
-  //  display: flex;
-  //  justify-content: center;
-  //  width: 100%;
-  //  margin: 0 0 50px 0;
-  //}
 `

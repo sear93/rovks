@@ -26,8 +26,8 @@ export const Service = (props) => {
                                src="/images/clock.png"
                                alt="service_image"
                                placeholder={"blur"}
-                               width={25}
-                               height={25}
+                               width={42}
+                               height={42}
                         />
                         <div className="service-item-content">
                             <h3 className="service-item-title">
@@ -44,8 +44,8 @@ export const Service = (props) => {
                                src="/images/lamp.png"
                                alt="service_image"
                                placeholder={"blur"}
-                               width={25}
-                               height={25}
+                               width={42}
+                               height={42}
                         />
                         <div className="service-item-content">
                             <h3 className="service-item-title">
@@ -62,8 +62,8 @@ export const Service = (props) => {
                                src="/images/lamp.png"
                                alt="service_image"
                                placeholder={"blur"}
-                               width={25}
-                               height={25}
+                               width={42}
+                               height={42}
                         />
                         <div className="service-item-content">
                             <h3 className="service-item-title">

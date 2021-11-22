@@ -4,10 +4,12 @@ export const ClientsWrapper = styled.section`
   .container {
     background: url("/images/slider-bg.png");
     background-repeat: no-repeat;
+    overflow: hidden;
     padding: 260px 50px;
 
     @media screen and (max-width: 768px) {
-      padding: 160px 0 50px 0;
+      background-size: cover;
+      padding: 60px 0 50px;
       margin: 0 0 50px 0;
     }
   }
@@ -22,17 +24,22 @@ export const ClientsWrapper = styled.section`
     font-weight: 700;
 
     @media screen and (max-width: 768px) {
-      margin: 10px 0;
+      margin: 30px 0;
       max-width: initial;
       text-align: center;
     }
   }
 
   .clients-slider {
-    width: 540px;
+    max-width: 540px;
     display: flex;
     justify-content: flex-start;
     margin: 0 auto 0 45px;
+
+    @media screen and (max-width: 768px) {
+      margin: 0 auto;
+      padding: 0 20px;
+    }
 
     .swiper-pagination {
       &-bullets {

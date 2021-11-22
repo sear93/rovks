@@ -12,11 +12,12 @@ export const Team = (props) => {
                 <div className="team-items">
 
                     <div className="team-item">
-                        {/*<img  src="/images/img_avatar.png" alt="team_image"/>*/}
                         <Image src={"/images/img_avatar.png"}
                                className="team-item-img"
                                placeholder={"blur"}
-                               layout='fill'
+                               alt="team_image"
+                               width={350}
+                               height={450}
                         />
 
                         <div className="team-item-content">
@@ -25,11 +26,12 @@ export const Team = (props) => {
                         </div>
                     </div>
                     <div className="team-item">
-                        {/*<img className="team-item-img" src="/images/img_avatar.png" alt="team_image"/>*/}
                         <Image src={"/images/img_avatar.png"}
                                className="team-item-img"
                                placeholder={"blur"}
-                               layout='fill'
+                               alt="team_image"
+                               width={350}
+                               height={450}
                         />
                         <div className="team-item-content">
                             <h3 className="team-item-name">Jake Spiral</h3>
@@ -37,12 +39,12 @@ export const Team = (props) => {
                         </div>
                     </div>
                     <div className="team-item">
-                        {/*<img className="team-item-img" src="/images/img_avatar.png" alt="team_image"/>*/}
                         <Image src={"/images/img_avatar.png"}
                                className="team-item-img"
                                placeholder="blur"
                                alt="team_image"
-                               layout='fill'
+                               width={350}
+                               height={450}
                         />
                         <div className="team-item-content">
                             <h3 className="team-item-name">Jake Spiral</h3>

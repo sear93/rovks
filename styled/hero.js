@@ -13,6 +13,11 @@ export const HeroWrapper = styled.section`
       font-weight: 700;
       font-family: "Roboto", sans-serif;
       margin: 0 0 70px 0;
+
+      @media screen and (max-width: 768px) {
+        font-size: 50px;
+        margin: 0 0 35px 0;
+      }
     }
 
     .text {
@@ -26,8 +31,17 @@ export const HeroWrapper = styled.section`
     .btns {
       display: flex;
 
+      @media screen and (max-width: 768px) {
+        flex-direction: column;
+        align-items: center;
+      }
+
       .button {
         margin: 0 30px 0 0;
+
+        @media screen and (max-width: 768px) {
+          margin: 0 0 30px 0;
+        }
       }
 
       .play_btn {

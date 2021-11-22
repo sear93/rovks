@@ -49,8 +49,10 @@ export const ContactsWrapper = styled.section`
   max-width: 82%;
   box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.13);
   background: #ffffff;
+  
   @media screen and (max-width: 768px) {
     max-width: initial;
+    margin: 0 auto 60px auto;
   }
 
   .title {
