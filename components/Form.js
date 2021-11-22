@@ -10,27 +10,26 @@ const Form = () => {
 
     const ctx = useContext(GlobalContext);
 
-    const onSubmit = (data) => {
+    const onSubmit = async (data) => {
+        try {
+            await ctx.showNotification({
+                message: "Pending",
+                status: "pending"
+            })
 
-        ctx.showNotification({
-            message: "Pending",
-            status: "pending"
-        }).then(() => {
-            axios.post(`/api/quotes`, data)
-                .then(() => {
-                    ctx.showNotification({
-                        message: "Success",
-                        status: "success"
-                    })
-                    reset();
-                })
-                .catch((err) => {
-                    ctx.showNotification({
-                        message: err.message,
-                        status: "error"
-                    })
-                })
-        })
+            await axios.post(`/api/quotes`, data)
+
+            await ctx.showNotification({
+                message: "Success",
+                status: "success"
+            })
+            await reset();
+        } catch (err) {
+            ctx.showNotification({
+                message: err.message,
+                status: "error"
+            })
+        }
     };
 
     let maxLength = (length) => {

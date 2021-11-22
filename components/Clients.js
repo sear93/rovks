@@ -2,7 +2,7 @@ import {Swiper, SwiperSlide} from 'swiper/react';
 import {ClientsWrapper} from "../styled/clients";
 import React from "react";
 
-export const Clients = () => {
+export const Clients = (props) => {
     return (
         <ClientsWrapper>
             <div className="container">

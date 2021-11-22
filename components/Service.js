@@ -1,5 +1,6 @@
 import {ServiceWrapper} from "../styled/service";
 import React from "react";
+import Image from "next/image";
 
 export const Service = (props) => {
     return (
@@ -21,9 +22,13 @@ export const Service = (props) => {
 
                 <div className="service-items">
                     <div className="service-item">
-                        <img className="service-item-img"
-                             src="/images/clock.png"
-                             alt="service_image"/>
+                        <Image className="service-item-img"
+                               src="/images/clock.png"
+                               alt="service_image"
+                               placeholder={"blur"}
+                               width={25}
+                               height={25}
+                        />
                         <div className="service-item-content">
                             <h3 className="service-item-title">
                                 Development
@@ -35,9 +40,13 @@ export const Service = (props) => {
                         </div>
                     </div>
                     <div className="service-item">
-                        <img className="service-item-img"
-                             src="/images/lamp.png"
-                             alt="service_image"/>
+                        <Image className="service-item-img"
+                               src="/images/lamp.png"
+                               alt="service_image"
+                               placeholder={"blur"}
+                               width={25}
+                               height={25}
+                        />
                         <div className="service-item-content">
                             <h3 className="service-item-title">
                                 Development
@@ -49,9 +58,13 @@ export const Service = (props) => {
                         </div>
                     </div>
                     <div className="service-item">
-                        <img className="service-item-img"
-                             src="/images/lamp.png"
-                             alt="service_image"/>
+                        <Image className="service-item-img"
+                               src="/images/lamp.png"
+                               alt="service_image"
+                               placeholder={"blur"}
+                               width={25}
+                               height={25}
+                        />
                         <div className="service-item-content">
                             <h3 className="service-item-title">
                                 Development
@@ -63,9 +76,13 @@ export const Service = (props) => {
                         </div>
                     </div>
                     <div className="service-item">
-                        <img className="service-item-img"
-                             src="/images/clock.png"
-                             alt="service_image"/>
+                        <Image className="service-item-img"
+                               src="/images/clock.png"
+                               alt="service_image"
+                               placeholder={"blur"}
+                               width={25}
+                               height={25}
+                        />
                         <div className="service-item-content">
                             <h3 className="service-item-title">
                                 Development

@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from "next/link";
+import Image from 'next/image'
 
 const WorksCard = ({post}) => {
 
@@ -14,9 +15,14 @@ const WorksCard = ({post}) => {
                  data-aos-duration="3000">
                 <Link href={`/work/${post.slug}`}>
                     <a>
-                        <img className="works-item__img"
-                             src={post.thumbnail ?? workItemImg}
-                             alt="image"/>
+                        <Image className="works-item__img"
+                               src={post.thumbnail ?? workItemImg}
+                               placeholder={"blur"}
+                               layout='fill'
+                               alt="image"/>
+                        {/*<img className="works-item__img"*/}
+                        {/*     src={post.thumbnail ?? workItemImg}*/}
+                        {/*     alt="image"/>*/}
                         <div className="works-item-content">
                             <h3 className="works-item__name">{post.title}</h3>
                             <h3 className="works-item__type">

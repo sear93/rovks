@@ -1,5 +1,6 @@
 import {ServicesWrapper} from "../styled/services";
 import React from "react";
+import Image from "next/image";
 
 export const Services = () => {
     return (
@@ -10,7 +11,13 @@ export const Services = () => {
                     <div className="item"
                          data-aos="fade-down"
                          data-aos-duration="2000">
-                        <img className="img" src="/images/agenda.png" alt="services_image"/>
+                        <Image src={"/images/agenda.png"}
+                               className="img"
+                               alt="services_image"
+                               placeholder={"blur"}
+                               width={42}
+                               height={42}
+                        />
 
                         <div className="content">
                             <h3 className="title">Branding</h3>
@@ -23,7 +30,13 @@ export const Services = () => {
                     <div className="item"
                          data-aos="fade-down"
                          data-aos-duration="2000">
-                        <img className="img" src="/images/lamp.png" alt="services_image"/>
+                        <Image src={"/images/lamp.png"}
+                               className="img"
+                               alt="services_image"
+                               placeholder={"blur"}
+                               width={42}
+                               height={42}
+                        />
 
                         <div className="content">
                             <h3 className="title">Idea & Concept</h3>
@@ -36,7 +49,13 @@ export const Services = () => {
                     <div className="item"
                          data-aos="fade-down"
                          data-aos-duration="2000">
-                        <img className="img" src="/images/clock.png" alt="services_image"/>
+                        <Image src={"/images/clock.png"}
+                               className="img"
+                               alt="services_image"
+                               placeholder={"blur"}
+                               width={42}
+                               height={42}
+                        />
 
                         <div className="content">
                             <h3 className="title">Development</h3>

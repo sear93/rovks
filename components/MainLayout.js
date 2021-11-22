@@ -26,9 +26,9 @@ export const MainLayout = (props) => {
                 {props.children}
             </main>
             <Footer options={props.options}/>
-            {ctx.notification && <Notification status={ctx.notification.status}
-                                               message={ctx.notification.message}
-                                               hideNotification={ctx.hideNotification}/>}
+            {ctx?.notification && <Notification status={ctx.notification?.status}
+                                                message={ctx.notification?.message}
+                                                hideNotification={ctx.hideNotification}/>}
         </>
     )
 }

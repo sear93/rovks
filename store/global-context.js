@@ -11,7 +11,7 @@ const GlobalContext = createContext({
 
 export const GlobalContextProvider = (props) => {
 
-    const [formNotification, setFormNotification] = useState({})
+    const [formNotification, setFormNotification] = useState(null)
 
     const showNotificationHandler = async (data) => {
         setFormNotification({
