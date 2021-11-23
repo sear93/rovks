@@ -11,7 +11,7 @@ const Notification = (props) => {
     useEffect(() => {
         setHeight(notificationRef.current.clientHeight)
         console.log(height)
-    }, [height])
+    }, [])
 
     useEffect(() => {
 
@@ -27,8 +27,6 @@ const Notification = (props) => {
             clearTimeout(timer)
         };
     }, [ctx.notification]);
-
-    console.log(height)
 
     return (
         <>

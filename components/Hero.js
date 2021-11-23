@@ -28,9 +28,8 @@ export const Hero = () => {
                     <div className="btns">
                         <a href="/" className="button">GET EARLY ACCESS</a>
                         <a onClick={showModal} className="play_btn">
-                            Live Video <img src={"/images/play_btn.svg"} alt="play_btn"/>
-                            <Image className="works-item__img"
-                                   src={post.thumbnail ?? workItemImg}
+                            Live Video
+                            <Image src={"/images/play_btn.svg"}
                                    placeholder={"blur"}
                                    width={50}
                                    height={50}

@@ -9,8 +9,6 @@ export const MainLayout = (props) => {
 
     const ctx = useContext(GlobalContext);
 
-    console.log(ctx)
-
     return (
         <>
             <Head>
