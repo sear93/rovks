@@ -16,7 +16,7 @@ const Post = ({post, relatedPosts}) => {
                            className={"attachment-post-thumbnail"}
                            placeholder={"blur"}
                            width={1200}
-                           height={650}
+                           height={760}
                     />
                     <div className={"entry-header"}>
                         <h1 data-aos="fade-in"

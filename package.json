@@ -25,6 +25,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.16.0",
-    "babel-loader": "^8.2.3"
+    "babel-loader": "^8.2.3",
+    "babel-plugin-styled-components": "^2.0.1"
   }
 }

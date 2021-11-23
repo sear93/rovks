@@ -48,10 +48,12 @@ export const RelatedUpdated = styled.div`
         &-link {
           text-decoration: none;
           color: black;
+          font-size: 0;
         }
 
         @media screen and (max-width: 768px) {
           max-width: initial;
+          width: initial;
         }
       }
 
@@ -60,6 +62,14 @@ export const RelatedUpdated = styled.div`
         height: 350px;
         object-fit: cover;
         margin: 0 0 24px 0;
+
+        @media screen and (max-width: 992px) {
+          height: 250px;
+        }
+
+        @media screen and (max-width: 768px) {
+          height: 350px;
+        }
       }
 
       h5 {

@@ -20,12 +20,13 @@ export const PostWrapper = styled.div`
     }
 
     &-title {
-      font-size: 48px;
+      font-size: 30px;
+      color: #232323;
+      font-weight: 700;
     }
 
     &-meta {
-      font-size: 14px;
-      margin: 20px 0;
+      margin: 38px 0;
       display: flex;
       align-items: center;
 
@@ -41,33 +42,43 @@ export const PostWrapper = styled.div`
       }
 
       .byline {
-        margin: 0 25px 0 0;
+        margin: 0 50px 0 0;
+        opacity: 0.5;
+        color: #232323;
+        font-size: 14px;
+        font-weight: 400;
       }
 
       .posted-on {
-        margin: 0 0 0 25px;
+        margin: 0 0 0 50px;
+        opacity: 0.5;
+        color: #232323;
+        font-size: 14px;
+        font-weight: 400;
       }
     }
 
     &-content {
       p {
         opacity: 0.5;
-        color: black;
-        font-size: 16px;
+        color: #232323;
+        line-height: 24px;
+        font-size: 18px;
         font-weight: 400;
+        margin: 0 0 50px 0;
       }
     }
   }
 
   .wp-block-quote {
-    border-left: 3px solid #6cc800;
-    margin: 30px 30px 30px 0;
-    padding: 0 0 0 30px;
+    border-left: 5px solid #6cc800;
+    margin: 50px 60px 50px 0;
+    padding: 0 0 0 60px;
     opacity: 0.5;
-    color: black;
-    font-size: 18px;
     font-style: italic;
-    letter-spacing: normal;
-    line-height: 14px;
+    color: #232323;
+    font-size: 22px;
+    letter-spacing: 1px;
+    line-height: 28px;
   }
 `
