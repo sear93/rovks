@@ -17,7 +17,7 @@ const Pagination = (props) => {
     useEffect(() => {
         setActiveClass(pageNumber)
         props.setCurrentPage(pageNumber)
-        document.cookie = `currentPage=${pageNumber}; secure`;
+        document.cookie = `currentPage=${pageNumber}; secure; samesite=strict`;
     }, [pageNumber])
 
     return (
