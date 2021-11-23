@@ -2,6 +2,7 @@ import React, {useContext} from 'react';
 import axios from "axios";
 import {useForm, useFormState} from "react-hook-form";
 import GlobalContext from "../store/global-context";
+import {delay} from "../helpers/utils";
 
 const Form = () => {
 
@@ -11,25 +12,28 @@ const Form = () => {
     const ctx = useContext(GlobalContext);
 
     const onSubmit = async (data) => {
-        try {
-            await ctx.showNotification({
-                message: "Pending",
-                status: "pending"
-            })
 
-            await axios.post(`/api/quotes`, data)
+        await ctx.showNotification({
+            message: "Pending",
+            status: "pending"
+        })
 
-            await ctx.showNotification({
-                message: "Success",
-                status: "success"
-            })
-            await reset();
-        } catch (err) {
-            ctx.showNotification({
-                message: err.message,
-                status: "error"
-            })
-        }
+        await delay(() => {
+
+            axios.post(`/api/quotes`, data)
+                .then(() => {
+                    ctx.showNotification({
+                        message: "Success",
+                        status: "success"
+                    })
+                    reset();
+                })
+                .catch(err => ctx.showNotification({
+                    message: err.message,
+                    status: "error"
+                }))
+
+        }, 2000)
     };
 
     let maxLength = (length) => {

@@ -2,16 +2,8 @@ import React from "react";
 import axios from "axios";
 import {WorkWrapper} from "../../../styled/work";
 import {changeDate} from "../../../helpers/utils";
-// import {useRouter} from "next/router";
 
 const WorkItem = ({work}) => {
-
-    // const router = useRouter()
-    //
-    // if (router.isFallback) {
-    //     return <div>Loading...</div>
-    // }
-
 
     return (
         <WorkWrapper>

@@ -79,6 +79,24 @@ export const GlobalStyles = createGlobalStyle`
     outline: none;
     cursor: pointer;
   }
+
+  .display-enter {
+    bottom: -90px;
+  }
+
+  .display-enter-active {
+    bottom: 0;
+    transition: bottom 0.6s cubic-bezier(.32,2,.55,.27);
+  }
+
+  .display-exit {
+    opacity: 1;
+  }
+
+  .display-exit-active {
+    bottom: -90px;
+    transition: bottom 300ms;
+  }
 `
 
 export const mapStyles = [

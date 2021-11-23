@@ -50,16 +50,8 @@ export const HeroWrapper = styled.section`
         color: #232323;
         text-transform: uppercase;
 
-        img {
-          margin: 0 0 0 20px;
-          transition: all 0.3s ease;
-          width: 50px;
-        }
-
-        &:hover {
-          img {
-            transform: scale(1.15);
-          }
+        p {
+          margin: 0 20px 0 0;
         }
       }
     }

@@ -4,6 +4,7 @@ import {Footer} from "./Footer";
 import {Header} from "./Header";
 import GlobalContext from "../store/global-context";
 import Notification from "./Notification";
+import {CSSTransition} from 'react-transition-group';
 
 export const MainLayout = (props) => {
 
@@ -24,9 +25,16 @@ export const MainLayout = (props) => {
                 {props.children}
             </main>
             <Footer options={props.options}/>
-            <Notification status={ctx.notification?.status}
-                          message={ctx.notification?.message}
-                          hideNotification={ctx.hideNotification}/>
+
+            <CSSTransition
+                in={!!ctx?.notification}
+                timeout={350}
+                classNames="display"
+                unmountOnExit>
+                <Notification status={ctx.notification?.status}
+                              message={ctx.notification?.message}
+                              hideNotification={ctx.hideNotification}/>
+            </CSSTransition>
         </>
     )
 }
