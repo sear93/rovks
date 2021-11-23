@@ -11,7 +11,7 @@ const Notification = (props) => {
     useEffect(() => {
         setHeight(notificationRef.current.clientHeight)
         console.log(height)
-    }, [])
+    }, [height])
 
     useEffect(() => {
 
