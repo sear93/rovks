@@ -7,12 +7,18 @@ export const Works = ({worksItems, workTypes}) => {
 
     const [works, setWorks] = useState(worksItems);
     const [activeClass, setActiveClass] = useState(0)
-    const [width, setWidth] = useState(0);
-
+    // const [windowWidth, setWindowWidth] = useState(0);
+    const [windowSize, setWindowSize] = useState(0)
 
     useEffect(() => {
-        setWidth(window.innerWidth)
-    }, []);
+        const handleResize = () => {
+            setWindowSize(window.innerWidth)
+        }
+
+        window.addEventListener('resize', handleResize)
+
+        return () => window.removeEventListener('resize', handleResize)
+    }, [])
 
     const filter = (e) => {
 
@@ -58,7 +64,7 @@ export const Works = ({worksItems, workTypes}) => {
                 </div>
 
                 <div className="works-items">
-                    {works.slice(0, width >= 768 ? 6 : 3).map((post) => {
+                    {works.slice(0, windowSize >= 768 ? 6 : 3).map((post) => {
                         return <WorksCard post={post} key={post.id}/>
                     })}
                 </div>
