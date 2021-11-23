@@ -13,7 +13,7 @@ const Notification = (props) => {
         if (ctx.notification?.status === 'success') {
             timer = setTimeout(() => {
                 ctx.hideNotification()
-            }, 5000)
+            }, 4000)
         }
 
         return () => {

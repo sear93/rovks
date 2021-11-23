@@ -3,9 +3,14 @@ import styled from "styled-components";
 export const HeroWrapper = styled.section`
   display: flex;
   padding: 200px 0 130px 0;
+  overflow: hidden;
 
   .content {
-    width: calc(50%);
+    width: 50%;
+
+    @media screen and (max-width: 992px) {
+      width: 80%;
+    }
 
     .title {
       font-size: 70px;

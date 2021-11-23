@@ -18,6 +18,7 @@ const Pagination = (props) => {
         setActiveClass(pageNumber)
         props.setCurrentPage(pageNumber)
         window.localStorage.setItem('currentPage', pageNumber)
+        document.cookie = `currentPage=${pageNumber}; secure`;
     }, [pageNumber])
 
     return (

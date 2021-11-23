@@ -33,7 +33,7 @@ const Form = () => {
                     status: "error"
                 }))
 
-        }, 2000)
+        }, 1000)
     };
 
     let maxLength = (length) => {

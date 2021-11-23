@@ -89,8 +89,10 @@ export default Blog;
 export const getServerSideProps = async (ctx) => {
 
     const pageNumber = ctx.query.page
+    let pageFromCookie = ctx.req.cookies?.currentPage
 
-    const response = await axios.get(`${process.env.API_URI}/posts?count=9${pageNumber ? `&page=${pageNumber}` : ''}`)
+    const response = await axios
+        .get(`${process.env.API_URI}/posts?count=9${pageNumber ? `&page=${pageNumber}` : `&page=${pageFromCookie}`}`)
 
     return {
         props: {

@@ -28,7 +28,7 @@ export const MainLayout = (props) => {
 
             <CSSTransition
                 in={!!ctx?.notification}
-                timeout={350}
+                timeout={400}
                 classNames="display"
                 unmountOnExit>
                 <Notification status={ctx.notification?.status}
