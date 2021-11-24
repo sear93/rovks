@@ -34,15 +34,6 @@ export const Hero = () => {
                         </a>
                     </div>
                 </div>
-                <Modal>
-                    <p>Modal</p>
-                    <p>Hero 1</p>
-                </Modal>
-
-                <Modal>
-                    <p>Modal</p>
-                    <p>Hero 2</p>
-                </Modal>
             </div>
         </HeroWrapper>
     )

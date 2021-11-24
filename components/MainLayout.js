@@ -5,6 +5,7 @@ import {Header} from "./Header";
 import GlobalContext from "../store/global-context";
 import Notification from "./Notification";
 import {CSSTransition} from 'react-transition-group';
+import Modal from "./Modal";
 
 export const MainLayout = (props) => {
 
@@ -35,6 +36,11 @@ export const MainLayout = (props) => {
                               message={ctx.notification?.message}
                               hideNotification={ctx.hideNotification}/>
             </CSSTransition>
+            <Modal>
+                <p>Modal</p>
+                <p>Hero 1</p>
+            </Modal>
+
         </>
     )
 }

@@ -5,20 +5,33 @@ import ReactDOM from "react-dom";
 
 const Modal = (props) => {
 
-    const ctx = useContext(GlobalContext)
+        const ctx = useContext(GlobalContext)
 
-    if (!ctx.modal) return null;
+        const onCloseModalHandler = (e) => {
+            if (
+                e.target.matches(".modal-btn") ||
+                !e.target.closest(".modal-main")
+            ) {
+                ctx.showModal(false)
+            }
+            return false
+        }
 
-    return ReactDOM.createPortal(
-        <ModalWrapper>
-            <div className="modal">
-                <div className="modal-content">
-                    {props.children}
+        if (!ctx.modal) return null;
+
+        return ReactDOM.createPortal(
+            <ModalWrapper>
+                <div className="modal" onClick={onCloseModalHandler}>
+                    <div className="modal-main">
+                        <div className="modal-content">
+                            {props.children}
+                        </div>
+                        <button className={'modal-btn'} onClick={() => ctx.showModal(false)}>Close</button>
+                    </div>
                 </div>
-                <button onClick={() => ctx.showModal(false)}>Close</button>
-            </div>
-        </ModalWrapper>
-        , document.body);
-};
+            </ModalWrapper>
+            , document.body);
+    }
+;
 
 export default Modal;
