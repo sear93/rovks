@@ -3,6 +3,9 @@ import {createContext, useState} from "react";
 
 const GlobalContext = createContext({
     notification: {},
+    modal: null,
+    showModal: (isShow) => {
+    },
     showNotification: (data) => {
     },
     hideNotification: () => {
@@ -12,6 +15,7 @@ const GlobalContext = createContext({
 export const GlobalContextProvider = (props) => {
 
     const [formNotification, setFormNotification] = useState(null)
+    const [showModal, setShowModal] = useState(false)
 
     const showNotificationHandler = async (data) => {
         setFormNotification({
@@ -24,8 +28,14 @@ export const GlobalContextProvider = (props) => {
         setFormNotification(null)
     }
 
+    const showModalHandler = (isShow) => {
+        setShowModal(isShow)
+    }
+
     const context = {
         notification: formNotification,
+        modal: showModal,
+        showModal: showModalHandler,
         showNotification: showNotificationHandler,
         hideNotification: hideNotificationHandler
     }

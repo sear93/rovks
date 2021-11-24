@@ -16,8 +16,12 @@ export const Works = ({worksItems, workTypes}) => {
         }
 
         window.addEventListener('resize', handleResize)
+        window.addEventListener('DOMContentLoaded', handleResize)
 
-        return () => window.removeEventListener('resize', handleResize)
+        return () => {
+            window.removeEventListener('resize', handleResize)
+            window.removeEventListener('DOMContentLoaded', handleResize)
+        }
     }, [])
 
     const filter = (e) => {
@@ -64,7 +68,7 @@ export const Works = ({worksItems, workTypes}) => {
                 </div>
 
                 <div className="works-items">
-                    {works.slice(0, windowSize >= 768 ? 6 : 3).map((post) => {
+                    {works.slice(0, windowSize <= 768 ? 3 : 6).map((post) => {
                         return <WorksCard post={post} key={post.id}/>
                     })}
                 </div>

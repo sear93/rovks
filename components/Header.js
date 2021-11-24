@@ -24,14 +24,17 @@ export const Header = (props) => {
 
     return (
         <HeaderWrapper>
-            <style jsx global>{` body {
-              overflow: ${lockBody ? "hidden" : "auto"}
-            }`}</style>
+            <style jsx global>
+                {`
+                  body {
+                    overflow: ${lockBody ? "hidden" : "auto"}
+                  }`}
+            </style>
             <div className="banner-overlay"/>
             <div className="container">
                 <Link href="/">
                     <a onClick={() => setActiveClass(6)}
-                       className={`brand ${activeClass === 6 ? 'active' : ''}`}>
+                       className={`brand ${activeClass === 6 ? 'active disabled' : ''}`}>
                         {props.logo}
                     </a>
                 </Link>
@@ -43,8 +46,8 @@ export const Header = (props) => {
                         {props?.menuItems?.map(item => {
                             return (
                                 <li key={item.id} className="menu-item">
-                                    <Link href={item?.slug}>
-                                        <a className={activeClass === item.id ? 'active' : ''}
+                                    <Link prefetch={false} href={item?.slug}>
+                                        <a className={activeClass === item.id ? 'active disabled' : ''}
                                            onClick={() => setMenuItem(item.id)}
                                         >{item.title}</a>
                                     </Link>

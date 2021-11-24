@@ -82,6 +82,10 @@ export const HeaderWrapper = styled.header`
             color: #ff6d04;
           }
 
+          &.disabled {
+            pointer-events: none;
+          }
+
           &:hover {
             color: #ff6d04;
           }

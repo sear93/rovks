@@ -1,16 +1,12 @@
-import React, {useState} from "react";
+import React, {useContext} from "react";
 import {HeroWrapper} from "../styled/hero";
 import Image from "next/image";
 import Modal from "./Modal";
+import GlobalContext from "../store/global-context";
 
 export const Hero = () => {
 
-    const [modal, setModal] = useState(false);
-
-    const showModal = (e) => {
-        e.preventDefault()
-        setModal(!modal)
-    };
+    const ctx = useContext(GlobalContext)
 
     return (
         <HeroWrapper>
@@ -27,8 +23,8 @@ export const Hero = () => {
                         venenatis ligula.
                     </p>
                     <div className="btns">
-                        <a href="/" className="button">GET EARLY ACCESS</a>
-                        <a onClick={showModal} className="play_btn">
+                        <a onClick={() => ctx.showModal(true)} className="button">GET EARLY ACCESS</a>
+                        <a onClick={() => ctx.showModal(true)} className="play_btn">
                             <p>Live Video</p>
                             <Image src={"/images/play_btn.svg"}
                                    placeholder={"blur"}
@@ -38,11 +34,14 @@ export const Hero = () => {
                         </a>
                     </div>
                 </div>
-                <Modal onClose={() => setModal(false)} show={modal}>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis
-                    deserunt corrupti, ut fugit magni qui quasi nisi amet repellendus non
-                    fuga omnis a sed impedit explicabo accusantium nihil doloremque
-                    consequuntur.
+                <Modal>
+                    <p>Modal</p>
+                    <p>Hero 1</p>
+                </Modal>
+
+                <Modal>
+                    <p>Modal</p>
+                    <p>Hero 2</p>
                 </Modal>
             </div>
         </HeroWrapper>

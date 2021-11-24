@@ -1,28 +1,24 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {ModalWrapper} from "../styled/modal";
+import GlobalContext from "../store/global-context";
+import ReactDOM from "react-dom";
 
 const Modal = (props) => {
 
-    const onClose = e => {
-        props.onClose && props.onClose(e);
-    };
+    const ctx = useContext(GlobalContext)
 
-    if (!props.show) {
-        return null;
-    }
-    return (
+    if (!ctx.modal) return null;
+
+    return ReactDOM.createPortal(
         <ModalWrapper>
-            <div className="modal" id="modal">
-                <h2>Modal Window</h2>
-                <div className="content">{props.children}</div>
-                <div className="actions">
-                    <button className="toggle-button" onClick={onClose}>
-                        close
-                    </button>
+            <div className="modal">
+                <div className="modal-content">
+                    {props.children}
                 </div>
+                <button onClick={() => ctx.showModal(false)}>Close</button>
             </div>
         </ModalWrapper>
-    );
+        , document.body);
 };
 
 export default Modal;
