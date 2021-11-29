@@ -34,12 +34,9 @@ const Notification = (props) => {
 export default Notification;
 
 const NotificationWrapper = styled.div`
-  position: fixed;
   display: flex;
   align-items: center;
-  bottom: 0;
   height: 90px;
-  left: 0;
   width: 100%;
   padding: 30px;
   border-radius: 15px 15px 0 0;

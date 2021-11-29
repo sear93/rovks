@@ -7,6 +7,7 @@ import Pagination from "../../components/Pagination";
 import {useRouter} from "next/router";
 import {LoaderComponent} from "../../components/Loader";
 import Image from "next/image";
+import {motion} from "framer-motion";
 
 const Blog = (props) => {
 
@@ -35,52 +36,55 @@ const Blog = (props) => {
     }
 
     return (
-        <BlogWrapper>
-            <div className="container">
-                <div className="blog">
-                    <div className="heading"
-                         data-aos="fade-down"
-                         data-aos-duration="2000">
-                        <h1 className="title">
-                            Blog News
-                        </h1>
-                        <p className="subtitle">
-                            Vestibulum posuere, turpis tempus tempus ornare, erat lorem rhoncus est
-                        </p>
+        <motion.div initial={{opacity: 0}}
+                    animate={{opacity: 1}}
+                    exit={{opacity: 0}}>
+            <BlogWrapper>
+                <div className="container">
+                    <div className="blog">
+                        <div className="heading"
+                             data-aos="fade-down"
+                             data-aos-duration="2000">
+                            <h1 className="title">
+                                Blog News
+                            </h1>
+                            <p className="subtitle">
+                                Vestibulum posuere, turpis tempus tempus ornare, erat lorem rhoncus est
+                            </p>
+                        </div>
+                        <div className="blog-section">
+                            {isLoading ? <LoaderComponent/> : posts?.map(post => {
+                                return (
+                                    <div key={post.id} className="item" data-aos="fade-in"
+                                         data-aos-duration="3000">
+                                        <Link href={`/blog/${post.slug}`}>
+                                            <a>
+                                                <Image src={post?.thumbnail}
+                                                       alt={post?.title}
+                                                       className="img"
+                                                       width={500}
+                                                       height={500}
+                                                />
+                                                <div className="content">
+                                                    <h4 className="title">{post?.title}</h4>
+                                                    <p className="date">
+                                                        {post?.date}
+                                                    </p>
+                                                </div>
+                                            </a>
+                                        </Link>
+                                    </div>
+                                )
+                            })}
+                        </div>
                     </div>
-                    <div className="blog-section">
-                        {isLoading ? <LoaderComponent/> : posts?.map(post => {
-                            return (
-                                <div key={post.id} className="item" data-aos="fade-in"
-                                     data-aos-duration="3000">
-                                    <Link href={`/blog/${post.slug}`}>
-                                        <a>
-                                            <Image src={post?.thumbnail}
-                                                   alt={post?.title}
-                                                   className="img"
-                                                   placeholder={"blur"}
-                                                   width={500}
-                                                   height={500}
-                                            />
-                                            <div className="content">
-                                                <h4 className="title">{post?.title}</h4>
-                                                <p className="date">
-                                                    {post?.date}
-                                                </p>
-                                            </div>
-                                        </a>
-                                    </Link>
-                                </div>
-                            )
-                        })}
-                    </div>
+                    <Pagination total={props.pagination.total}
+                                limit={props.pagination.limit}
+                                currentPage={props.pagination.page}
+                                setCurrentPage={onPageChangedHandler}/>
                 </div>
-                <Pagination total={props.pagination.total}
-                            limit={props.pagination.limit}
-                            currentPage={props.pagination.page}
-                            setCurrentPage={onPageChangedHandler}/>
-            </div>
-        </BlogWrapper>
+            </BlogWrapper>
+        </motion.div>
     )
 }
 

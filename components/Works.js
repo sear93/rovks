@@ -7,20 +7,19 @@ export const Works = ({worksItems, workTypes}) => {
 
     const [works, setWorks] = useState(worksItems);
     const [activeClass, setActiveClass] = useState(0)
-    // const [windowWidth, setWindowWidth] = useState(0);
     const [windowSize, setWindowSize] = useState(0)
 
     useEffect(() => {
         const handleResize = () => {
-            setWindowSize(window.innerWidth)
+            setWindowSize(+window.innerWidth)
         }
 
         window.addEventListener('resize', handleResize)
-        window.addEventListener('DOMContentLoaded', handleResize)
+        window.addEventListener('load', handleResize)
 
         return () => {
             window.removeEventListener('resize', handleResize)
-            window.removeEventListener('DOMContentLoaded', handleResize)
+            window.removeEventListener('load', handleResize)
         }
     }, [])
 

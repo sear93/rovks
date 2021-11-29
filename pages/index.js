@@ -8,11 +8,14 @@ import {Works} from "../components/Works";
 import axios from "axios";
 import {NewsComponent} from "../components/RelatedNews";
 import {changeDate} from "../helpers/utils";
+import {motion} from "framer-motion";
 
 export default function Home(props) {
 
     return (
-        <>
+        <motion.div initial={{opacity: 0}}
+                    animate={{opacity: 1}}
+                    exit={{opacity: 0}}>
             <Hero/>
             <Services/>
             <Features showButton={true}/>
@@ -22,7 +25,7 @@ export default function Home(props) {
             <NewsComponent title={"Our Update News"}
                            subtitle={"Vestibulum posuere, turpis tempus tempus ornare, erat lorem rhoncus est"}
                            posts={props.posts}/>
-        </>
+        </motion.div>
     )
 }
 

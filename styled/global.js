@@ -35,10 +35,6 @@ export const GlobalStyles = createGlobalStyle`
     }
   }
 
-  //.site-content {
-  //  padding: 150px 0 0 0;
-  //}
-
   .button {
     padding: 25px 0;
     border-radius: 35px;
@@ -80,22 +76,8 @@ export const GlobalStyles = createGlobalStyle`
     cursor: pointer;
   }
 
-  .display-enter {
+  .displayEnter {
     bottom: -90px;
-  }
-
-  .display-enter-active {
-    bottom: 0;
-    transition: bottom 0.6s cubic-bezier(.32,2,.55,.27);
-  }
-
-  .display-exit {
-    opacity: 1;
-  }
-
-  .display-exit-active {
-    bottom: -90px;
-    transition: bottom 300ms;
   }
 `
 

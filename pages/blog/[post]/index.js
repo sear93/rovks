@@ -4,43 +4,48 @@ import {PostWrapper} from "../../../styled/post";
 import {NewsComponent} from "../../../components/RelatedNews";
 import {changeDate} from "../../../helpers/utils";
 import Image from "next/image";
+import {motion} from "framer-motion";
 
 const Post = ({post, relatedPosts}) => {
 
     return (
-        <PostWrapper>
-            <article>
-                <div className={"container"}>
-                    <Image src={post?.thumbnail}
-                           alt={post?.title}
-                           className={"attachment-post-thumbnail"}
-                           placeholder={"blur"}
-                           width={1200}
-                           height={760}
-                    />
-                    <div className={"entry-header"}>
-                        <h1 data-aos="fade-in"
-                            data-aos-duration="2000"
-                            className={"entry-title"}>{post?.title}</h1>
-                        <div className={"entry-meta"}
+        <motion.div initial={{opacity: 0}}
+                    animate={{opacity: 1}}
+                    exit={{opacity: 0}}>
+            <PostWrapper>
+                <article>
+                    <div className={"container"}>
+                        <Image src={post?.thumbnail}
+                               alt={post?.title}
+                               className={"attachment-post-thumbnail"}
+                               placeholder={"blur"}
+                               width={1200}
+                               height={760}
+                        />
+                        <div className={"entry-header"}>
+                            <h1 data-aos="fade-in"
+                                data-aos-duration="2000"
+                                className={"entry-title"}>{post?.title}</h1>
+                            <div className={"entry-meta"}
+                                 data-aos="fade-in"
+                                 data-aos-duration="2000">
+                                <img src={post?.author?.avatar} alt="avatar"/>
+                                <span className={"byline"}>By {post?.author?.slug}</span>
+                                <span className={"posted-on"}>{post?.date}</span>
+                            </div>
+                        </div>
+                        <div className={"entry-content"}
                              data-aos="fade-in"
                              data-aos-duration="2000">
-                            <img src={post?.author?.avatar} alt="avatar"/>
-                            <span className={"byline"}>By {post?.author?.slug}</span>
-                            <span className={"posted-on"}>{post?.date}</span>
+                            <div dangerouslySetInnerHTML={{__html: post?.content}}/>
                         </div>
                     </div>
-                    <div className={"entry-content"}
-                         data-aos="fade-in"
-                         data-aos-duration="2000">
-                        <div dangerouslySetInnerHTML={{__html: post?.content}}/>
-                    </div>
-                </div>
-            </article>
-            <NewsComponent title={"Related News"}
-                           subtitle={"Vestibulum posuere, turpis tempus tempus"}
-                           posts={relatedPosts}/>
-        </PostWrapper>
+                </article>
+                <NewsComponent title={"Related News"}
+                               subtitle={"Vestibulum posuere, turpis tempus tempus"}
+                               posts={relatedPosts}/>
+            </PostWrapper>
+        </motion.div>
     )
 }
 

@@ -16,8 +16,8 @@ export const Header = (props) => {
     }
 
     const setMenuItem = (id) => {
-        setActiveClass(id)
         setMenuOpen(!menuOpen)
+        setActiveClass(id)
         setLockBody(false)
         setMobileMenu(!mobileMenu)
     }
