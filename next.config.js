@@ -5,6 +5,7 @@ module.exports = {
     },
     images: {
         domains: ['wp-dev.space'],
+        formats: ['image/avif', 'image/webp']
     },
     // i18n: {
     //     locales: ['en', 'fr', 'de', 'sv'],

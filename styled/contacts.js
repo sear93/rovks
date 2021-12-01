@@ -90,6 +90,11 @@ export const ContactsWrapper = styled.section`
         border: none;
         background: #f9f9f9;
         margin: 5px 0;
+        
+        &::selection {
+          background: #34495e;
+          color: white;
+        }
 
         &::placeholder {
           font-size: 16px;
