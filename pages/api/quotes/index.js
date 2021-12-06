@@ -1,50 +1,52 @@
-const path = require('path')
-const fs = require('fs')
-var mysql = require('mysql');
+// const path = require('path')
+// const fs = require('fs')
 
 // import {dbConnect} from "../../../helpers/dbConnect";
+// import mysql from "mysql";
 import Quote from '../../../models/QuoteSchema'
 
 
 export default async (req, res) => {
 
-    let connection = await mysql.createConnection({
-        host: '127.0.0.1',
-        user: 'root',
-        password: 'root',
-        database: 'test_db',
-        socketPath: '/Applications/MAMP/tmp/mysql/mysql.sock'
-    });
+    // let connection = await mysql.createConnection({
+    //     host: '127.0.0.1',
+    //     user: 'root',
+    //     password: 'root',
+    //     database: 'test_db',
+    //     socketPath: '/Applications/MAMP/tmp/mysql/mysql.sock'
+    // });
+    //
+    // connection.connect((err) => {
+    //     if (err) {
+    //         throw new Error(err)
+    //     }
+    // });
 
-    connection.connect((err) => {
-        if (err) {
-            throw new Error(err)
-        }
-    });
 
-
-    // await dbConnect()
+    await dbConnect()
 
     const {method, body} = req;
 
     switch (method) {
         case "POST": {
 
-            let keys = Object.keys(body)
-            let values = Object.values(body)
-
-            connection.query(`INSERT INTO users (${keys.join(',')})
-                              VALUES (?)`, [values], (error, results) => {
-                if (error) {
-                    res.status(500).json({
-                        message: "Something wend wrong", error: error
-                    })
-                }
-
-                res.status(200).json({
-                    results
-                })
-            });
+            // let keys = Object.keys(body)
+            // let values = Object.values(body)
+            //
+            // connection.query(`INSERT INTO users (${keys.join(',')})
+            //                   VALUES (?)`, [values], (error, results) => {
+            //     if (error) {
+            //         res.status(500).json({
+            //             message: "Something wend wrong", error: error
+            //         })
+            //     }
+            //
+            //     res.status(200).json({
+            //         results
+            //     })
+            // });
+            //
+            // connection.end();
 
             // read to file
 
@@ -61,31 +63,32 @@ export default async (req, res) => {
 
             // ============
 
-            // try {
-            //     const quotes = await Quote.create([req.body])
-            //     res.status(200).json({
-            //         success: true, quotes: quotes
-            //     })
-            //
-            // } catch (error) {
-            //     res.status(400).json({success: false, error})
-            // }
+            try {
+                const quotes = await Quote.create([req.body])
+                res.status(200).json({
+                    success: true, quotes: quotes
+                })
+
+            } catch (error) {
+                res.status(400).json({success: false, error})
+            }
             break
         }
         case "GET": {
 
-            connection.query(`SELECT *
-                              FROM users`, (error, results) => {
-                if (error) {
-                    return res.status(500).json({
-                        message: "Something wend wrong", error: error,
-                    })
-                }
-
-                return res.status(200).json({
-                    results
-                })
-            });
+            // connection.query(`SELECT * FROM users`, (error, results) => {
+            //     if (error) {
+            //         return res.status(500).json({
+            //             message: "Something wend wrong", error: error,
+            //         })
+            //     }
+            //
+            //     return res.status(200).json({
+            //         results
+            //     })
+            // });
+            //
+            // connection.end();
 
             // get data from file
 
@@ -99,22 +102,18 @@ export default async (req, res) => {
             //         data: "data not found"
             //     })
             // }
-
-
-            connection.end();
-
             //
             // // ===================
             //
-            // try {
-            //     const quotes = await Quote.find({})
-            //     res.status(200).json({
-            //         success: true,
-            //         quotes: quotes
-            //     })
-            // } catch (error) {
-            //     res.status(400).json({success: false, error})
-            // }
+            try {
+                const quotes = await Quote.find({})
+                res.status(200).json({
+                    success: true,
+                    quotes: quotes
+                })
+            } catch (error) {
+                res.status(400).json({success: false, error})
+            }
             break
         }
         default:

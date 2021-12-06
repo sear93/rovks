@@ -55,7 +55,7 @@ export const getStaticPaths = async () => {
 
     const response = await axios.get(`${process.env.API_URI}/posts`)
 
-    const paths = response?.data?.data?.posts.map(post => ({
+    const paths = response?.data?.posts.map(post => ({
         params: {post: post.slug}
     }))
 
@@ -68,20 +68,20 @@ export const getStaticPaths = async () => {
 export const getStaticProps = async (cxt) => {
 
     const post = await axios.get(`${process.env.API_URI}/post/${cxt.params.post}`)
-    const category = post.data.data.category.slug
+    const category = post.data.category.slug
     const relatedPosts = await axios.get(`${process.env.API_URI}/posts?category=${category}&count=3`)
 
     return {
         props: {
-            relatedPosts: relatedPosts.data.data.posts.map(post => {
+            relatedPosts: relatedPosts.data.posts.map(post => {
                 return {
                     ...post,
                     date: changeDate(post.date)
                 }
             }),
             post: {
-                ...post.data.data,
-                date: changeDate(post.data.data.date)
+                ...post.data,
+                date: changeDate(post.data.date)
             },
         },
         revalidate: 30,

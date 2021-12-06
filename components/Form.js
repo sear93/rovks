@@ -20,7 +20,9 @@ const Form = () => {
 
         await delay(() => {
 
-            axios.post(`${process.env.API_URI}/testimonials`, data)
+            axios.post(`${process.env.API_URI}/testimonials`, data, {
+                withCredentials: true
+            })
                 .then(() => {
                     ctx.showNotification({
                         message: "Success",

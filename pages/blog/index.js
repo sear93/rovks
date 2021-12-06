@@ -24,7 +24,7 @@ const Blog = (props) => {
         router.query.page = pageNumber
         await router.replace(router)
 
-        let result = await response.data.data.posts.map((item) => {
+        let result = await response.data.posts.map((item) => {
             return ({
                 ...item,
                 date: changeDate(item.date)
@@ -100,13 +100,13 @@ export const getServerSideProps = async (ctx) => {
 
     return {
         props: {
-            posts: response.data.data.posts.map(i => {
+            posts: response.data.posts.map(i => {
                 return {
                     ...i,
                     date: changeDate(i.date)
                 }
             }),
-            pagination: response.data.data.pagination,
+            pagination: response.data.pagination,
         }
     }
 }

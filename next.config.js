@@ -4,8 +4,8 @@ module.exports = {
         MONGO_URI: "mongodb+srv://egor:5901478900@cluster0.4wtxn.mongodb.net/ROVKS?retryWrites=true&w=majority"
     },
     images: {
-        domains: ['wp-dev.space'],
-        formats: ['image/avif', 'image/webp']
+        domains: ['wp-dev.space', 'education-egor.local'],
+        // formats: ['image/avif', 'image/webp']
     },
     // i18n: {
     //     locales: ['en', 'fr', 'de', 'sv'],
