@@ -100,13 +100,13 @@ export const getServerSideProps = async (ctx) => {
 
     return {
         props: {
-            posts: response.data.posts.map(i => {
+            posts: response?.data?.posts.map(i => {
                 return {
                     ...i,
                     date: changeDate(i.date)
                 }
             }),
-            pagination: response.data.pagination,
+            pagination: response?.data?.pagination,
         }
     }
 }

@@ -68,12 +68,12 @@ export const getStaticPaths = async () => {
 export const getStaticProps = async (cxt) => {
 
     const post = await axios.get(`${process.env.API_URI}/post/${cxt.params.post}`)
-    const category = post.data.category.slug
+    const category = post?.data?.category?.slug
     const relatedPosts = await axios.get(`${process.env.API_URI}/posts?category=${category}&count=3`)
 
     return {
         props: {
-            relatedPosts: relatedPosts.data.posts.map(post => {
+            relatedPosts: relatedPosts?.data?.posts.map(post => {
                 return {
                     ...post,
                     date: changeDate(post.date)

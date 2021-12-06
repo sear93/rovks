@@ -59,11 +59,13 @@ App.getInitialProps = async () => {
 
     const response = await axios.get(`${process.env.API_URI}/general`)
 
+    console.log(response)
+
     return {
         pageProps: {
-            logo: response.data.data.logo,
-            menuItems: response.data.data.menuItems,
-            options: response.data.data.options
+            logo: response.data.logo,
+            menuItems: response.data.menuItems,
+            options: response.data.options
         }
     }
 }

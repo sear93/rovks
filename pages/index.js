@@ -37,7 +37,7 @@ export const getStaticProps = async () => {
 
     return {
         props: {
-            posts: posts.data.data.posts.map(i => {
+            posts: posts.data.posts.map(i => {
                 return {
                     ...i,
                     date: changeDate(i.date)
