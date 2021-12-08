@@ -8,6 +8,7 @@ import {useRouter} from "next/router";
 import {LoaderComponent} from "../../components/Loader";
 import Image from "next/image";
 import {motion} from "framer-motion";
+import {pageTransition, pageVariants} from "../../styled/pageTransitions";
 
 const Blog = (props) => {
 
@@ -36,9 +37,11 @@ const Blog = (props) => {
     }
 
     return (
-        <motion.div initial={{opacity: 0}}
-                    animate={{opacity: 1}}
-                    exit={{opacity: 0}}>
+        <motion.div initial="initial"
+                    animate="in"
+                    exit="out"
+                    variants={pageVariants}
+                    transition={pageTransition}>
             <BlogWrapper>
                 <div className="container">
                     <div className="blog">

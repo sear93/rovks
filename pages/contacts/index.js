@@ -3,13 +3,16 @@ import {ContactsWrapper} from "../../styled/contacts";
 import Form from "../../components/Form";
 import Map from "../../components/Map";
 import {motion} from "framer-motion";
+import {pageTransition, pageVariants} from "../../styled/pageTransitions";
 
 const Contacts = () => {
 
     return (
-        <motion.div initial={{opacity: 0}}
-                    animate={{opacity: 1}}
-                    exit={{opacity: 0}}>
+            <motion.div initial="initial"
+                        animate="in"
+                        exit="out"
+                        variants={pageVariants}
+                        transition={pageTransition}>
             <ContactsWrapper>
                 <div className="container">
                     <Map/>

@@ -3,12 +3,15 @@ import {Features} from "../../components/Features";
 import {Services} from "../../components/Services";
 import {Team} from "../../components/Team";
 import {motion} from 'framer-motion'
+import {pageTransition, pageVariants} from "../../styled/pageTransitions";
 
 const About = () => {
     return (
-        <motion.div initial={{opacity: 0}}
-                    animate={{opacity: 1}}
-                    exit={{opacity: 0}}>
+        <motion.div initial="initial"
+                    animate="in"
+                    exit="out"
+                    variants={pageVariants}
+                    transition={pageTransition}>
             <Features showButton={true}/>
             <Features reverse={true}/>
             <Services/>

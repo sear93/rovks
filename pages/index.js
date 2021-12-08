@@ -9,13 +9,16 @@ import axios from "axios";
 import {NewsComponent} from "../components/RelatedNews";
 import {changeDate} from "../helpers/utils";
 import {motion} from "framer-motion";
+import {pageTransition, pageVariants} from "../styled/pageTransitions";
 
 export default function Home(props) {
 
     return (
-        <motion.div initial={{opacity: 0}}
-                    animate={{opacity: 1}}
-                    exit={{opacity: 0}}>
+        <motion.div initial="initial"
+                    animate="in"
+                    exit="out"
+                    variants={pageVariants}
+                    transition={pageTransition}>
             <Hero/>
             <Services/>
             <Features showButton={true}/>

@@ -5,13 +5,16 @@ import {NewsComponent} from "../../../components/RelatedNews";
 import {changeDate} from "../../../helpers/utils";
 import Image from "next/image";
 import {motion} from "framer-motion";
+import {pageTransition, pageVariants} from "../../../styled/pageTransitions";
 
 const Post = ({post, relatedPosts}) => {
 
     return (
-        <motion.div initial={{opacity: 0}}
-                    animate={{opacity: 1}}
-                    exit={{opacity: 0}}>
+        <motion.div initial="initial"
+                    animate="in"
+                    exit="out"
+                    variants={pageVariants}
+                    transition={pageTransition}>
             <PostWrapper>
                 <article>
                     <div className={"container"}>

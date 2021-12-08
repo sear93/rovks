@@ -30,6 +30,8 @@ export default async (req, res) => {
     switch (method) {
         case "POST": {
 
+            // send query to mysql server
+
             // let keys = Object.keys(body)
             // let values = Object.values(body)
             //
@@ -75,6 +77,8 @@ export default async (req, res) => {
             break
         }
         case "GET": {
+
+            // send query to mysql server
 
             // connection.query(`SELECT * FROM users`, (error, results) => {
             //     if (error) {
