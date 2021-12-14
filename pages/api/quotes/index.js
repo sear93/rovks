@@ -1,7 +1,7 @@
 // const path = require('path')
 // const fs = require('fs')
 
-// import {dbConnect} from "../../../helpers/dbConnect";
+import {dbConnect} from "../../../helpers/dbConnect";
 // import mysql from "mysql";
 import Quote from '../../../models/QuoteSchema'
 
@@ -22,10 +22,9 @@ export default async (req, res) => {
     //     }
     // });
 
-
     await dbConnect()
 
-    const {method, body} = req;
+    const {method} = req;
 
     switch (method) {
         case "POST": {
