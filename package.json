@@ -23,7 +23,8 @@
     "react-hook-form": "^7.20.2",
     "react-loader-spinner": "^4.0.0",
     "styled-components": "^5.3.3",
-    "swiper": "^6.8.4"
+    "swiper": "^6.8.4",
+    "swr": "^1.1.1"
   },
   "devDependencies": {
     "@babel/core": "^7.16.0",

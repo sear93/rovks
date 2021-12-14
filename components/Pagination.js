@@ -1,34 +1,29 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import styled from "styled-components";
 
 const Pagination = (props) => {
 
     const pages = Math.ceil(props.total / props.limit)
-
     const [activeClass, setActiveClass] = useState(props.currentPage)
-    const [pageNumber, setPageNumber] = useState(props.currentPage)
-
     let paged = [];
 
     for (let i = 1; i <= pages; i++) {
         paged.push(i)
     }
 
-    useEffect(() => {
+    const onSetPageHandler = (pageNumber) => {
         setActiveClass(pageNumber)
         props.setCurrentPage(pageNumber)
         document.cookie = `currentPage=${pageNumber}; secure; samesite=strict`;
-    }, [pageNumber])
+    }
 
-    return (
-        <PaginationWrapper>
-            {paged.map((index) => <button
-                className={index === activeClass ? 'active' : ''}
-                onClick={() => setPageNumber(index)}
-                disabled={activeClass === index}
-                key={index}>{index}</button>)}
-        </PaginationWrapper>
-    );
+    return (<PaginationWrapper>
+        {paged.map((index) => <button
+            className={index === activeClass ? 'active' : ''}
+            onClick={() => onSetPageHandler(index)}
+            disabled={activeClass === index}
+            key={index}>{index}</button>)}
+    </PaginationWrapper>);
 };
 
 export default Pagination;
