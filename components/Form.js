@@ -19,8 +19,7 @@ const Form = () => {
         })
 
         await delay(() => {
-
-            axios.post(`${process.env.API_URI}/testimonials`, data, {
+            axios.post(`/api/quotes`, data, {
                 withCredentials: true
             })
                 .then(() => {
