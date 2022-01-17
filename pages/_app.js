@@ -31,12 +31,6 @@ function App({Component, pageProps}) {
         console.debug('AOS init')
     }, [])
 
-    function handleExitComplete() {
-        if (typeof window !== 'undefined') {
-            window.scrollTo({top: 0})
-        }
-    }
-
     const router = useRouter()
 
     return (
@@ -44,7 +38,7 @@ function App({Component, pageProps}) {
             <GlobalStyles/>
             <GlobalContextProvider>
                 <Layout logo={pageProps.logo} menuItems={pageProps.menuItems} options={pageProps.options}>
-                    <AnimatePresence exitBeforeEnter onExitComplete={handleExitComplete}>
+                    <AnimatePresence exitBeforeEnter>
                         <Component {...pageProps} key={router.route}/>
                     </AnimatePresence>
                 </Layout>

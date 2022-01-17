@@ -4,12 +4,11 @@
 import {dbConnect} from "../../../helpers/dbConnect";
 import Quote from '../../../models/QuoteSchema'
 
-
 export default async (req, res) => {
 
     await dbConnect()
 
-    const {method, body} = req;
+    const {method} = req;
 
     switch (method) {
         case "POST": {
