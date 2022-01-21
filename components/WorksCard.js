@@ -10,16 +10,13 @@ const WorksCard = ({post}) => {
 
     return (
         <>
-            <div className="works-item"
-                 data-aos="fade-in"
-                 data-aos-duration="3000">
+            <div className="works-item">
                 <Link href={`/work/${post.slug}`}>
                     <a>
                         <Image className="works-item__img"
                                src={post.thumbnail ?? workItemImg}
-                               placeholder={"blur"}
-                               width={700}
-                               height={700}
+                               placeholder="blur"
+                               layout="fill"
                                alt="image"/>
                         <div className="works-item-content">
                             <h3 className="works-item__name">{post.title}</h3>

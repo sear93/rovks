@@ -24,6 +24,7 @@ export const NewsComponent = (props) => {
                                         <a className="grid-item-link">
                                             <Image src={post.thumbnail}
                                                    alt={post.slug}
+                                                   className={'grid-item-img'}
                                                    placeholder={"blur"}
                                                    width={700}
                                                    height={700}

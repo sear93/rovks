@@ -28,6 +28,11 @@ export const ServicesWrapper = styled.section`
       width: calc(100% - 20px);
     }
 
+    .img {
+      width: 100%;
+      height: 100%;
+    }
+
     .title {
       margin: 50px 0 20px 0;
       color: #232323;

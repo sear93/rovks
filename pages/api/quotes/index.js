@@ -8,7 +8,7 @@ export default async (req, res) => {
 
     await dbConnect()
 
-    const {method} = req;
+    const {method, body} = req;
 
     switch (method) {
         case "POST": {

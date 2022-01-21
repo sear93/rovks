@@ -1,10 +1,9 @@
 import React, {useContext} from "react";
 import {HeroWrapper} from "../styled/hero";
 import Image from "next/image";
-import Modal from "./Modal";
 import GlobalContext from "../store/global-context";
 
-export const Hero = () => {
+export const Hero = (props) => {
 
     const ctx = useContext(GlobalContext)
 
@@ -23,15 +22,15 @@ export const Hero = () => {
                         venenatis ligula.
                     </p>
                     <div className="btns">
-                        <a onClick={() => ctx.showModal(true)} className="button">GET EARLY ACCESS</a>
-                        <a onClick={() => ctx.showModal(true)} className="play_btn">
+                        <button data-modal="earlyAccess" className="button">GET EARLY ACCESS</button>
+                        <button onClick={props.openModal} data-modal="video" className="play_btn">
                             <p>Live Video</p>
                             <Image src={"/images/play_btn.svg"}
                                    placeholder={"blur"}
                                    width={50}
                                    height={50}
                                    alt="play_btn"/>
-                        </a>
+                        </button>
                     </div>
                 </div>
             </div>

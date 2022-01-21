@@ -46,6 +46,8 @@ export const RelatedUpdated = styled.div`
         max-width: 33.33%;
 
         &-link {
+          display: flex;
+          flex-direction: column;
           text-decoration: none;
           color: black;
           font-size: 0;
@@ -57,23 +59,8 @@ export const RelatedUpdated = styled.div`
         }
       }
 
-      img {
-        width: 100%;
-        height: 350px;
-        object-fit: cover;
-        margin: 0 0 24px 0;
-
-        @media screen and (max-width: 992px) {
-          height: 250px;
-        }
-
-        @media screen and (max-width: 768px) {
-          height: 350px;
-        }
-      }
-
       h5 {
-        margin: 0 0 30px 0;
+        margin: 24px 0 30px 0;
         color: #232323;
         font-size: 24px;
         font-weight: 700;

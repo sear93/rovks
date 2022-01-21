@@ -19,7 +19,7 @@ export default function Home(props) {
                     exit="out"
                     variants={pageVariants}
                     transition={pageTransition}>
-            <Hero/>
+            <Hero openModal={props.openModal}/>
             <Services/>
             <Features showButton={true}/>
             <Service showButton={true}/>
@@ -34,8 +34,8 @@ export default function Home(props) {
 
 export const getStaticProps = async () => {
 
-    const posts = await axios.get(`${process.env.API_URI}/posts?count=3`)
-    const works = await axios.get(`${process.env.API_URI}/works`)
+    const posts = await axios.get(`${process.env.API_URI}/posts?count=3&size=large`)
+    const works = await axios.get(`${process.env.API_URI}/works?size=large`)
     const workTypes = await axios.get(`${process.env.API_URI}/workTypes`)
 
     return {

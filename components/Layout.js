@@ -21,7 +21,7 @@ export const Layout = (props) => {
                     rel="stylesheet"/>
             </Head>
             <Header logo={props.logo} menuItems={props.menuItems}/>
-            <main className="site-content">
+            <main className="site-content" onClick={props.openModal}>
                 {props.children}
             </main>
             <Footer options={props.options}/>

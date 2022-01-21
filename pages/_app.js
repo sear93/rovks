@@ -6,10 +6,11 @@ import {GlobalContextProvider} from "../store/global-context";
 import Router, {useRouter} from 'next/router';
 import NProgress from 'nprogress';
 import 'nprogress/nprogress.css';
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import {AnimatePresence} from 'framer-motion'
+import ModalManager from "../components/ModalManager";
 
 // Binding events.
 Router.events.on('routeChangeStart', () => NProgress.start());
@@ -28,8 +29,22 @@ function App({Component, pageProps}) {
     useEffect(() => {
         AOS.init()
         AOS.refresh()
-        console.debug('AOS init')
     }, [])
+
+    const [modalOpen, setModalOpen] = useState(false)
+
+    const openModal = event => {
+        event.preventDefault()
+        const eventWithModalDataSet = event.target.closest('button[data-modal]')
+        if (eventWithModalDataSet) {
+            const dataSetModal = eventWithModalDataSet.dataset.modal
+            if (dataSetModal) setModalOpen(dataSetModal)
+        }
+    }
+
+    const closeModal = () => {
+        setModalOpen('')
+    }
 
     const router = useRouter()
 
@@ -37,10 +52,12 @@ function App({Component, pageProps}) {
         <>
             <GlobalStyles/>
             <GlobalContextProvider>
-                <Layout logo={pageProps.logo} menuItems={pageProps.menuItems} options={pageProps.options}>
+                <Layout openModal={openModal} logo={pageProps.logo} menuItems={pageProps.menuItems}
+                        options={pageProps.options}>
                     <AnimatePresence exitBeforeEnter>
                         <Component {...pageProps} key={router.route}/>
                     </AnimatePresence>
+                    <ModalManager closeModal={closeModal} modal={modalOpen}/>
                 </Layout>
             </GlobalContextProvider>
         </>
@@ -52,8 +69,6 @@ export default App;
 App.getInitialProps = async () => {
 
     const response = await axios.get(`${process.env.API_URI}/general`)
-
-    console.log(response)
 
     return {
         pageProps: {

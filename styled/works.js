@@ -86,6 +86,7 @@ export const WorksWrapper = styled.section`
     color: #000;
     font-size: 0;
     height: 100%;
+    width: 100%;
   }
 
   .works-group {

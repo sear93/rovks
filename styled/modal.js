@@ -16,11 +16,43 @@ export const ModalWrapper = styled.div`
       align-items: center;
       justify-content: center;
       background: white;
+      border-radius: 10px;
       width: 80%;
       height: 50%;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
+    }
+
+    &-btn {
+      z-index: 10;
+      position: absolute;
+      top: 25px;
+      right: 25px;
+      height: 24px;
+      width: 24px;
+      border: none;
+      background-color: transparent;
+      cursor: pointer;
+
+      &::before,
+      &:after {
+        content: '';
+        display: block;
+        width: 25px;
+        position: absolute;
+        height: 4px;
+        background-color: black;
+        border-radius: 2px;
+      }
+
+      &::before {
+        transform: rotate(45deg);
+      }
+
+      &::after {
+        transform: rotate(-45deg);
+      }
     }
   }
 `;
