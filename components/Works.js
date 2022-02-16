@@ -70,9 +70,6 @@ export const Works = ({worksItems, workTypes}) => {
                     {works.slice(0, windowSize <= 768 ? 3 : 6).map((post) => {
                         return <WorksCard post={post} key={post.id}/>
                     })}
-                    <Modal>
-                        <p>dsfdsfds</p>
-                    </Modal>
                 </div>
             </div>
         </WorksWrapper>

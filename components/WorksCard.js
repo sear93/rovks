@@ -1,5 +1,5 @@
 import React from 'react';
-import Link from "next/link";
+// import Link from "next/link";
 import Image from 'next/image'
 
 const WorksCard = ({post}) => {
@@ -11,7 +11,7 @@ const WorksCard = ({post}) => {
     return (
         <>
             <div className="works-item">
-                <Link href={`/work/${post.slug}`}>
+                {/*<Link href={`/work/${post.slug}`}>*/}
                     <a>
                         <Image className="works-item__img"
                                src={post.thumbnail ?? workItemImg}
@@ -25,7 +25,7 @@ const WorksCard = ({post}) => {
                             </h3>
                         </div>
                     </a>
-                </Link>
+                {/*</Link>*/}
             </div>
         </>
     );

@@ -10,7 +10,7 @@ export default async (req, res) => {
     switch (method) {
         case "GET": {
             try {
-                const users = await Quote.findOne({_id: id})
+                const user = await Quote.findOne({_id: id})
 
                 res.status(200).json({
                     success: true,

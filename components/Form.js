@@ -3,6 +3,7 @@ import axios from "axios";
 import GlobalContext from "../store/global-context";
 import {delay} from "../helpers/utils";
 import {useForm} from "react-hook-form";
+import {FormWrapper} from "../styled/form";
 
 const Form = () => {
 
@@ -50,10 +51,11 @@ const Form = () => {
     }
 
     return (
-        <form className="form">
+        <FormWrapper onSubmit={e => console.log(e)}>
             <div className="inputs">
                 <div className="inputs-col">
                     <input placeholder={"Name*"}
+                           className={errors?.name && 'error'}
                            {...register("name", {
                                required: true,
                                maxLength: 20,
@@ -68,6 +70,7 @@ const Form = () => {
                     </div>
 
                     <input placeholder={"Email*"}
+                           className={errors?.email && 'error'}
                            {...register("email",
                                {
                                    pattern: /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/,
@@ -81,6 +84,7 @@ const Form = () => {
                 </div>
                 <div className="inputs-col">
                     <input placeholder={"Phone*"}
+                           className={errors?.phone && 'error'}
                            {...register("phone",
                                {
                                    required: true,
@@ -94,6 +98,7 @@ const Form = () => {
                     </div>
 
                     <input placeholder={"Subject*"}
+                           className={errors?.subject && 'error'}
                            {...register("subject",
                                {
                                    required: true
@@ -110,8 +115,8 @@ const Form = () => {
                               required: false
                           })}
             />
-            <input type="submit" onClick={handleSubmit(onSubmitHandler)} className="button"/>
-        </form>
+            <input onClick={handleSubmit(onSubmitHandler)} type="submit" className="button"/>
+        </FormWrapper>
     );
 };
 
