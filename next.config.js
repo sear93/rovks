@@ -1,7 +1,7 @@
 const {PHASE_DEVELOPMENT_SERVER, PHASE_PRODUCTION_SERVER} = require('next/constants')
 
 module.exports = (phase) => {
-    if (phase === PHASE_DEVELOPMENT_SERVER) {
+    if (phase !== PHASE_DEVELOPMENT_SERVER) {
         return {
             env: {
                 API_URI: "http://education-egor.local/wp-json/api",

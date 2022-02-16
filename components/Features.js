@@ -1,13 +1,12 @@
 import {FeaturesWrapper} from "../styled/features";
 import React from "react";
 import Image from "next/image";
+import {modalNames} from "./ModalManager";
 
 export const Features = (props) => {
     return (
         <FeaturesWrapper reverse={props.reverse}>
-            <div className={`container ${props.reverse ? 'row-reverse' : 'row'}`}
-                 data-aos="fade-down"
-                 data-aos-duration="2000">
+            <div className={`container ${props.reverse ? 'row-reverse' : 'row'}`}>
                 <div className="feature-img">
                     <Image src={"/images/2-layers.png"}
                            placeholder={"blur"}
@@ -28,7 +27,7 @@ export const Features = (props) => {
                         Dicta sunt explicabo. nemo enim ipsam voluptatem quia magni voluptassit aspernatur aut odit aut
                         fugit sed quia consequuntur magni dolores eos.
                     </p>
-                    {props.showButton ? <button className="button">GET EARLY ACCESS</button> : null}
+                    {props.showButton ? <button data-modal={modalNames.earlyAccess} className="button">GET EARLY ACCESS</button> : null}
                 </div>
             </div>
         </FeaturesWrapper>

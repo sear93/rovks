@@ -26,20 +26,14 @@ const Post = ({post, relatedPosts}) => {
                                height={760}
                         />
                         <div className={"entry-header"}>
-                            <h1 data-aos="fade-in"
-                                data-aos-duration="2000"
-                                className={"entry-title"}>{post?.title}</h1>
-                            <div className={"entry-meta"}
-                                 data-aos="fade-in"
-                                 data-aos-duration="2000">
+                            <h1 className={"entry-title"}>{post?.title}</h1>
+                            <div className={"entry-meta"}>
                                 <img src={post?.author?.avatar} alt="avatar"/>
                                 <span className={"byline"}>By {post?.author?.slug}</span>
                                 <span className={"posted-on"}>{post?.date}</span>
                             </div>
                         </div>
-                        <div className={"entry-content"}
-                             data-aos="fade-in"
-                             data-aos-duration="2000">
+                        <div className={"entry-content"}>
                             <div dangerouslySetInnerHTML={{__html: post?.content}}/>
                         </div>
                     </div>

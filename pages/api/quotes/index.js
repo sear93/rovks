@@ -1,6 +1,3 @@
-// const path = require('path')
-// const fs = require('fs')
-
 import {dbConnect} from "../../../helpers/dbConnect";
 import Quote from '../../../models/QuoteSchema'
 
@@ -12,21 +9,6 @@ export default async (req, res) => {
 
     switch (method) {
         case "POST": {
-
-            // read to file
-
-            // const filePath = path.join(process.cwd(), '/data', 'quotes.json')
-            // const fileData = fs.readFileSync(filePath)
-            // const parsedData = JSON.parse(fileData)
-            //
-            // const quote = {
-            //     id: parsedData.length + 1, ...req.body
-            // }
-
-            // parsedData.push(quote)
-            // fs.writeFileSync(filePath, JSON.stringify(parsedData))
-
-            // ============
 
             try {
                 const quotes = await Quote.create([body])
@@ -40,21 +22,6 @@ export default async (req, res) => {
             break
         }
         case "GET": {
-
-            // get data from file
-
-            // const filePath = path.join(process.cwd(), '/data', 'quotes.json')
-            // const fileData = fs.readFileSync(filePath)
-            // const parsedData = JSON.parse(fileData)
-            //
-            // if (parsedData.length === 0) {
-            //     return res.status(400).json({
-            //         success: false,
-            //         data: "data not found"
-            //     })
-            // }
-            //
-            // // ===================
 
             try {
                 const quotes = await Quote.find({})

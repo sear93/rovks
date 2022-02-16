@@ -43,9 +43,7 @@ export const Works = ({worksItems, workTypes}) => {
 
     return (
         <WorksWrapper>
-            <div className="container"
-                 data-aos="fade-down"
-                 data-aos-duration="2000">
+            <div className="container">
                 <div className="works-content">
                     <h4>Latest Works</h4>
                     <div className="works-group">

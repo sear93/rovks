@@ -6,15 +6,12 @@ export const Clients = (props) => {
     return (
         <ClientsWrapper>
             <div className="container">
-                <h2 className="clients-title"
-                    data-aos="fade-left"
-                    data-aos-duration="2000">
+                <h2 className="clients-title">
                     What Are Clients Say
                 </h2>
-                <div className="clients-slider"
-                     data-aos="fade-right"
-                     data-aos-duration="2000">
-                    <Swiper slidesPerView={1}>
+                <div className="clients-slider">
+                    <Swiper slidesPerView={1}
+                            loop={true}>
                         <SwiperSlide>
                             <div className="clients-slide">
                                 <p className="clients-slide__response">

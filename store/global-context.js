@@ -4,23 +4,33 @@ import {createContext, useState} from "react";
 const GlobalContext = createContext({
     notification: {},
     modal: null,
-    showModal: (isShow) => {
-    },
-    showNotification: (data) => {
-    },
-    hideNotification: () => {
-    },
+    showModal: (event) => {},
+    closeModal: () => {},
+    showNotification: (data) => {},
+    hideNotification: () => {},
 })
 
 export const GlobalContextProvider = (props) => {
 
     const [formNotification, setFormNotification] = useState(null)
-    const [showModal, setShowModal] = useState(false)
+    const [modalOpen, setModalOpen] = useState('')
+
+    const openModalHandler = (event) => {
+        event.preventDefault()
+        const eventWithModalDataSet = event.target.closest('button[data-modal]')
+        if (eventWithModalDataSet) {
+            const dataSetModal = eventWithModalDataSet.dataset.modal
+            if (dataSetModal) setModalOpen(dataSetModal)
+        }
+    }
+
+    const closeModalHandler = () => {
+        setModalOpen('')
+    }
 
     const showNotificationHandler = async (data) => {
         setFormNotification({
-            message: data.message,
-            status: data.status,
+            message: data.message, status: data.status,
         })
     }
 
@@ -28,23 +38,18 @@ export const GlobalContextProvider = (props) => {
         setFormNotification(null)
     }
 
-    const showModalHandler = (isShow) => {
-        setShowModal(isShow)
-    }
-
     const context = {
         notification: formNotification,
-        modal: showModal,
-        showModal: showModalHandler,
+        modal: modalOpen,
+        openModal: openModalHandler,
+        closeModal: closeModalHandler,
         showNotification: showNotificationHandler,
         hideNotification: hideNotificationHandler
     }
 
-    return (
-        <GlobalContext.Provider value={context}>
+    return (<GlobalContext.Provider value={context}>
             {props.children}
-        </GlobalContext.Provider>
-    )
+        </GlobalContext.Provider>)
 }
 
 export default GlobalContext;

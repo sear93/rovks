@@ -5,9 +5,7 @@ import Image from 'next/image'
 export const Team = (props) => {
     return (
         <TeamWrapper>
-            <div className="container"
-                 data-aos="fade-down"
-                 data-aos-duration="2000">
+            <div className="container">
                 <h2 className="team-title">Our Team</h2>
                 <div className="team-items">
 

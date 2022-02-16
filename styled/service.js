@@ -84,6 +84,10 @@ export const ServiceWrapper = styled.section`
     border-radius: 10px;
     height: 300px;
 
+    @media screen and (max-width: 1100px) {
+      padding: 25px 10px 20px;
+    }
+
     @media screen and (max-width: 768px) {
       margin: 20px 10px;
       width: initial;
@@ -105,6 +109,10 @@ export const ServiceWrapper = styled.section`
       color: #232323;
       font-size: 24px;
       font-weight: 700;
+
+      @media screen and (max-width: 1100px) {
+        margin: 15px 0 10px 0;
+      }
     }
 
     .service-item-text {

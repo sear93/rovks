@@ -3,14 +3,11 @@ import React from "react";
 import Image from "next/image";
 
 export const Services = () => {
-    return (
-        <ServicesWrapper>
+    return (<ServicesWrapper>
             <div className="container">
                 <div className="items">
 
-                    <div className="item"
-                         data-aos="fade-down"
-                         data-aos-duration="2000">
+                    <div className="item">
                         <Image src={"/images/agenda.png"}
                                className="img"
                                alt="services_image"
@@ -27,9 +24,7 @@ export const Services = () => {
 
                     </div>
 
-                    <div className="item"
-                         data-aos="fade-down"
-                         data-aos-duration="2000">
+                    <div className="item">
                         <Image src={"/images/lamp.png"}
                                className="img"
                                alt="services_image"
@@ -46,9 +41,7 @@ export const Services = () => {
 
                     </div>
 
-                    <div className="item"
-                         data-aos="fade-down"
-                         data-aos-duration="2000">
+                    <div className="item">
                         <Image src={"/images/clock.png"}
                                className="img"
                                alt="services_image"
@@ -67,6 +60,5 @@ export const Services = () => {
 
                 </div>
             </div>
-        </ServicesWrapper>
-    )
+        </ServicesWrapper>)
 }

@@ -7,8 +7,8 @@ export async function dbConnect() {
     }
 
     try {
-        mongoose.connect(process.env.MONGO_URI, options).then(result => {
-            console.log('Successfully connected to DB :', result)
+        mongoose.connect(process.env.MONGO_URI, options).then(() => {
+            console.log('Successfully connected to DB')
         })
     } catch {
         console.log("Connection failed")

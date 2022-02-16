@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const FooterWrapper = styled.footer`
   background-color: #f9f9f9;
-  padding: 120px 0;
+  padding: 60px 0;
 
   @media screen and (max-width: 768px) {
     padding: 60px 0;
@@ -67,7 +67,7 @@ export const FooterWrapper = styled.footer`
   .bottom-section {
     display: flex;
     justify-content: space-between;
-    margin-top: 50px;
+    //margin-top: 50px;
 
     @media screen and (max-width: 768px) {
       flex-direction: column;

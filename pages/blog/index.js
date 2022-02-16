@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import {BlogWrapper} from "../../styled/blog";
 import axios from "axios";
 import Link from "next/link";
@@ -16,15 +16,21 @@ const Blog = (props) => {
     const router = useRouter();
     const [posts, setPosts] = useState(props.posts)
     const [isLoading, setIsLoading] = useState(false)
-    // const fetcher = url => axios.get(url).then(res => res.data)
-    // const {data, error} = useSWR(`${process.env.API_URI}/posts`, fetcher)
-    // console.log(data, error)
+
+    console.log(props.currentPage)
+
+    useEffect(() => {
+        if(props.currentPage) {
+            router.query.page = props.currentPage
+             router.replace(router)
+        }
+    } , [])
 
     const onPageChangedHandler = async (pageNumber) => {
 
         setIsLoading(true)
 
-        const response = await axios.get(`${process.env.API_URI}/posts?count=${props.pagination.limit}&page=${pageNumber}`)
+        const response = await axios.get(`${process.env.API_URI}/posts?&size=large&count=${props.pagination.limit}&page=${pageNumber}`)
 
         router.query.page = pageNumber
         await router.replace(router)
@@ -48,9 +54,7 @@ const Blog = (props) => {
         <BlogWrapper>
             <div className="container">
                 <div className="blog">
-                    <div className="heading"
-                         data-aos="fade-down"
-                         data-aos-duration="2000">
+                    <div className="heading">
                         <h1 className="title">
                             Blog News
                         </h1>
@@ -60,25 +64,24 @@ const Blog = (props) => {
                     </div>
                     <div className="blog-section">
                         {isLoading ? <LoaderComponent/> : posts?.map(post => {
-                            return (<div key={post.id} className="item" data-aos="fade-in"
-                                         data-aos-duration="3000">
-                                <Link href={`/blog/${post.slug}`}>
-                                    <a>
-                                        <Image src={post?.thumbnail}
-                                               alt={post?.title}
-                                               className="img"
-                                               width={500}
-                                               height={500}
-                                        />
-                                        <div className="content">
-                                            <h4 className="title">{post?.title}</h4>
-                                            <p className="date">
-                                                {post?.date}
-                                            </p>
-                                        </div>
-                                    </a>
-                                </Link>
-                            </div>)
+                            return (<div key={post.id} className="item">
+                                    <Link href={`/blog/${post.slug}`}>
+                                        <a>
+                                            <Image src={post?.thumbnail}
+                                                   alt={post?.title}
+                                                   className="img"
+                                                   width={500}
+                                                   height={500}
+                                            />
+                                            <div className="content">
+                                                <h4 className="title">{post?.title}</h4>
+                                                <p className="date">
+                                                    {post?.date}
+                                                </p>
+                                            </div>
+                                        </a>
+                                    </Link>
+                                </div>)
                         })}
                     </div>
                 </div>
@@ -99,7 +102,7 @@ export const getServerSideProps = async (ctx) => {
     let pageFromCookie = ctx.req.cookies?.currentPage
 
     const response = await axios
-        .get(`${process.env.API_URI}/posts?count=9${pageNumber ? `&page=${pageNumber}` : `&page=${pageFromCookie}`}`)
+        .get(`${process.env.API_URI}/posts?count=9&size=large${pageNumber ? `&page=${pageNumber}` : `&page=${pageFromCookie}`}`)
 
     return {
         props: {
@@ -107,7 +110,9 @@ export const getServerSideProps = async (ctx) => {
                 return {
                     ...i, date: changeDate(i.date)
                 }
-            }), pagination: response?.data?.pagination,
+            }),
+            pagination: response?.data?.pagination,
+            currentPage: pageFromCookie
         }
     }
 }
