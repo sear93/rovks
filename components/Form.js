@@ -110,7 +110,7 @@ const Form = () => {
                               required: false
                           })}
             />
-            <input type="submit" onSubmit={handleSubmit(onSubmitHandler)} className="button"/>
+            <input type="submit" onClick={handleSubmit(onSubmitHandler)} className="button"/>
         </form>
     );
 };
