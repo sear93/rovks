@@ -27,7 +27,11 @@ export const Features = (props) => {
                         Dicta sunt explicabo. nemo enim ipsam voluptatem quia magni voluptassit aspernatur aut odit aut
                         fugit sed quia consequuntur magni dolores eos.
                     </p>
-                    {props.showButton ? <button data-modal={modalNames.earlyAccess} className="button">GET EARLY ACCESS</button> : null}
+                    {
+                        props.showButton
+                        ? <button data-modal={modalNames.earlyAccess} className="button">GET EARLY ACCESS</button>
+                        : null
+                    }
                 </div>
             </div>
         </FeaturesWrapper>

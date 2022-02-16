@@ -1,19 +1,21 @@
 import React, {useState} from 'react';
 import styled from "styled-components";
+import {useRouter} from 'next/router'
 
 const Pagination = (props) => {
 
     const pages = Math.ceil(props.total / props.limit)
     const [activeClass, setActiveClass] = useState(props.currentPage)
     let paged = [];
+    const router = useRouter()
 
     for (let i = 1; i <= pages; i++) {
         paged.push(i)
     }
 
     const onSetPageHandler = (pageNumber) => {
+        router.push(`${router.pathname}?page=${pageNumber}`)
         setActiveClass(pageNumber)
-        props.setCurrentPage(pageNumber)
         document.cookie = `currentPage=${pageNumber}; secure; samesite=strict`;
     }
 

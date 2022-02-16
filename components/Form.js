@@ -1,17 +1,17 @@
 import React, {useContext} from 'react';
 import axios from "axios";
-import {useForm, useFormState} from "react-hook-form";
 import GlobalContext from "../store/global-context";
 import {delay} from "../helpers/utils";
+import {useForm} from "react-hook-form";
 
 const Form = () => {
 
-    const {register, handleSubmit, reset, control} = useForm();
-    const {errors} = useFormState({control});
+    const {register, handleSubmit, reset, formState: {errors}} = useForm();
 
     const ctx = useContext(GlobalContext);
 
-    const onSubmit = async (data) => {
+    const onSubmitHandler = async (data) => {
+        console.log('submit')
 
         await ctx.showNotification({
             message: "Pending",
@@ -50,71 +50,68 @@ const Form = () => {
     }
 
     return (
-        <>
-            <form onSubmit={handleSubmit(onSubmit)} className="form">
-                <div className="inputs">
-                    <div className="inputs-col">
-                        <input placeholder={"Name*"}
-                               {...register("name", {
-                                   required: true,
-                                   maxLength: 20,
-                                   pattern: /^[a-zA-Z].*[\s\.]*$/g
-                               })}
-                        />
-                        <div className="errors">
-                            {errors?.name?.type === "required" && required()}
-                            {errors?.name?.type === "maxLength" && maxLength(20)}
-                            {errors?.name?.type === "pattern" && (
-                                <p className={"error"}>Alphabetical characters only</p>)}
-                        </div>
-
-                        <input placeholder={"Email*"}
-                               {...register("email",
-                                   {
-                                       pattern: /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/,
-                                       required: true,
-                                   })}
-                        />
-                        <div className="errors">
-                            {errors?.email?.type === "pattern" && (<p className={"error"}>Email is incorrect</p>)}
-                            {errors?.email?.type === "required" && required()}
-                        </div>
+        <form className="form">
+            <div className="inputs">
+                <div className="inputs-col">
+                    <input placeholder={"Name*"}
+                           {...register("name", {
+                               required: true,
+                               maxLength: 20,
+                               pattern: /^[a-zA-Z].*[\s\.]*$/g
+                           })}
+                    />
+                    <div className="errors">
+                        {errors?.name?.type === "required" && required()}
+                        {errors?.name?.type === "maxLength" && maxLength(20)}
+                        {errors?.name?.type === "pattern" && (
+                            <p className={"error"}>Alphabetical characters only</p>)}
                     </div>
-                    <div className="inputs-col">
-                        <input placeholder={"Phone*"}
-                               {...register("phone",
-                                   {
-                                       required: true,
-                                       pattern: /^[+]?(1\-|1\s|1|\d{3}\-|\d{3}\s|)?((\(\d{3}\))|\d{3})(\-|\s)?(\d{3})(\-|\s)?(\d{4})$/g,
-                                   })}
-                        />
-                        <div className="errors">
-                            {errors?.phone?.type === "required" && required()}
-                            {errors?.phone?.type === "pattern" && (
-                                <p className={"error"}>Phone number is incorrect</p>)}
-                        </div>
 
-                        <input placeholder={"Subject*"}
-                               {...register("subject",
-                                   {
-                                       required: true
-                                   })}
-                        />
-                        <div className="errors">
-                            {errors?.subject?.type === "required" && required()}
-                        </div>
+                    <input placeholder={"Email*"}
+                           {...register("email",
+                               {
+                                   pattern: /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/,
+                                   required: true,
+                               })}
+                    />
+                    <div className="errors">
+                        {errors?.email?.type === "pattern" && (<p className={"error"}>Email is incorrect</p>)}
+                        {errors?.email?.type === "required" && required()}
                     </div>
                 </div>
-                <textarea placeholder={"Message"}
-                          {...register("message",
-                              {
-                                  required: false
-                              })}
-                />
-                <input type="submit" className="button"/>
-            </form>
-        </>
+                <div className="inputs-col">
+                    <input placeholder={"Phone*"}
+                           {...register("phone",
+                               {
+                                   required: true,
+                                   pattern: /^[+]?(1\-|1\s|1|\d{3}\-|\d{3}\s|)?((\(\d{3}\))|\d{3})(\-|\s)?(\d{3})(\-|\s)?(\d{4})$/g,
+                               })}
+                    />
+                    <div className="errors">
+                        {errors?.phone?.type === "required" && required()}
+                        {errors?.phone?.type === "pattern" && (
+                            <p className={"error"}>Phone number is incorrect</p>)}
+                    </div>
 
+                    <input placeholder={"Subject*"}
+                           {...register("subject",
+                               {
+                                   required: true
+                               })}
+                    />
+                    <div className="errors">
+                        {errors?.subject?.type === "required" && required()}
+                    </div>
+                </div>
+            </div>
+            <textarea placeholder={"Message"}
+                      {...register("message",
+                          {
+                              required: false
+                          })}
+            />
+            <input type="submit" onSubmit={handleSubmit(onSubmitHandler)} className="button"/>
+        </form>
     );
 };
 

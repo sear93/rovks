@@ -15,8 +15,11 @@ export const Service = (props) => {
                     laborum sed perspiciatis unde omnis natus error sit voluptatem accusantium dolore mque
                     laudantium totam rem aperiam.
                 </p>
-                {props.showButton ?
-                    <button data-modal={modalNames.earlyAccess} className="button">GET EARLY ACCESS</button> : null}
+                {
+                    props.showButton
+                        ? <button data-modal={modalNames.earlyAccess} className="button">GET EARLY ACCESS</button>
+                        : null
+                }
             </div>
 
             <div className="service-items">

@@ -1,27 +1,9 @@
 import React from "react";
 import axios from "axios";
-import {WorkWrapper} from "../../../styled/work";
 import {changeDate} from "../../../helpers/utils";
 
 const WorkItem = ({work}) => {
-
-    return (
-        <WorkWrapper>
-            <article>
-                <div className={"container"}>
-                    <img className={"attachment-post-thumbnail"}
-                         src={work?.thumbnail}
-                         alt={work?.title}/>
-                    <div className={"entry-header"}>
-                        <h1 className={"entry-title"}>{work?.title}</h1>
-                        <div className={"entry-meta"}>
-                            <span className={"posted-on"}>{work?.date}</span>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        </WorkWrapper>
-    )
+    return <WorkItem work={work}/>
 }
 
 export default WorkItem;

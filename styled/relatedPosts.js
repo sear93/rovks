@@ -12,17 +12,15 @@ export const RelatedUpdated = styled.div`
       font-style: normal;
       letter-spacing: normal;
       line-height: normal;
-      text-align: center;
       margin: 0 0 20px 0;
       color: #232323;
-      font-size: 60px;
+      font-size: 30px;
       font-weight: 700;
     }
 
     &-subtitle {
       opacity: 0.5;
       font-style: normal;
-      text-align: center;
       letter-spacing: normal;
       line-height: normal;
       color: #232323;
@@ -35,7 +33,7 @@ export const RelatedUpdated = styled.div`
       flex-direction: row;
       justify-content: flex-start;
       grid-gap: 30px;
-      margin: 80px 0 120px 0;
+      margin: 50px 0 120px 0;
 
       @media screen and (max-width: 768px) {
         margin: 40px 0 60px 0;
@@ -45,7 +43,7 @@ export const RelatedUpdated = styled.div`
         width: 100%;
         max-width: 33.33%;
 
-        &-link {
+        .link {
           display: flex;
           flex-direction: column;
           text-decoration: none;

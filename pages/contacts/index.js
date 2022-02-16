@@ -33,7 +33,7 @@ const Contacts = () => {
                         <h2 className="title">
                             Get In Touch
                         </h2>
-                        <Form/>
+                        {/*<Form/>*/}
                     </div>
                 </div>
             </ContactsWrapper>

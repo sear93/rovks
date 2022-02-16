@@ -15,7 +15,7 @@ export const NewsComponent = (props) => {
                         return (<div key={post.id}
                                      className="grid-item">
                             <Link href={`/blog/${post.slug}`}>
-                                <a className="grid-item-link">
+                                <a className="link">
                                     <Image src={post.thumbnail}
                                            alt={post.slug}
                                            className={'grid-item-img'}
