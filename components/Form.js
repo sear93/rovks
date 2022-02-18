@@ -12,7 +12,6 @@ const Form = () => {
     const ctx = useContext(GlobalContext);
 
     const onSubmitHandler = async (data) => {
-        console.log('submit')
 
         await ctx.showNotification({
             message: "Pending",

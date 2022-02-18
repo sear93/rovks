@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {BlogWrapper} from "../../styled/blog";
 import axios from "axios";
 import {changeDate} from "../../helpers/utils";
@@ -6,8 +6,15 @@ import Pagination from "../../components/Pagination";
 import {motion} from "framer-motion";
 import {pageTransition, pageVariants} from "../../styled/pageTransitions";
 import BlogItem from "../../components/BlogItem";
+import {useRouter} from "next/router";
 
 const Blog = (props) => {
+
+    const router = useRouter()
+
+    useEffect(() => {
+        router.push(`${router.pathname}?page=${props.currentPage}`)
+    }, [])
 
     return (
         <motion.div initial="initial"
@@ -44,11 +51,9 @@ export default Blog;
 
 export const getServerSideProps = async (ctx) => {
 
-    const pageNumber = ctx.query.page
-    let pageFromCookie = ctx.req.cookies?.currentPage
+    let page = ctx.query.page ?? ctx.req.cookies?.currentPage;
 
-    const response = await axios
-        .get(`${process.env.API_URI}/posts?count=9&size=large&page=${pageNumber && pageFromCookie}`)
+    const response = await axios.get(`${process.env.API_URI}/posts?count=9&size=large&page=${page}`)
 
     return {
         props: {
@@ -58,7 +63,7 @@ export const getServerSideProps = async (ctx) => {
                 }
             }),
             pagination: response?.data?.pagination,
-            currentPage: pageFromCookie
+            currentPage: page
         }
     }
 }
