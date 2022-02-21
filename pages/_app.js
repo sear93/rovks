@@ -26,6 +26,8 @@ NProgress.configure({
 
 function App({Component, pageProps}) {
 
+    const router = useRouter();
+
     useEffect(() => {
         AOS.init()
         AOS.refresh()
@@ -45,8 +47,6 @@ function App({Component, pageProps}) {
     const closeModal = () => {
         setModalOpen('')
     }
-
-    const router = useRouter()
 
     return (
         <>
