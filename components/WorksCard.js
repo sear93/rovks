@@ -1,5 +1,4 @@
 import React from 'react';
-// import Link from "next/link";
 import Image from 'next/image'
 
 const WorksCard = ({post}) => {
@@ -8,24 +7,23 @@ const WorksCard = ({post}) => {
     let terms = post?.terms.map(term => term.description)
     let preparedTerms = terms?.join(', ')
 
+
     return (
         <>
             <div className="works-item">
-                {/*<Link href={`/work/${post.slug}`}>*/}
-                    <a>
-                        <Image className="works-item__img"
-                               src={post.thumbnail ?? workItemImg}
-                               placeholder="blur"
-                               layout="fill"
-                               alt="image"/>
-                        <div className="works-item-content">
-                            <h3 className="works-item__name">{post.title}</h3>
-                            <h3 className="works-item__type">
-                                {post.terms.length ? preparedTerms : `Without category`}
-                            </h3>
-                        </div>
-                    </a>
-                {/*</Link>*/}
+                <a>
+                    <Image className="works-item__img"
+                           src={post.thumbnail ?? workItemImg}
+                           placeholder="blur"
+                           layout="fill"
+                           alt="image"/>
+                    <div className="works-item-content">
+                        <h3 className="works-item__name">{post.title}</h3>
+                        <h3 className="works-item__type">
+                            {post.terms.length ? preparedTerms : `Without category`}
+                        </h3>
+                    </div>
+                </a>
             </div>
         </>
     );

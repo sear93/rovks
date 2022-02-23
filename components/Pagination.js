@@ -4,10 +4,11 @@ import {useRouter} from 'next/router'
 
 const Pagination = (props) => {
 
+    const router = useRouter()
     const pages = Math.ceil(props.total / props.limit)
     const [activeClass, setActiveClass] = useState(props.currentPage)
-    let paged = [];
-    const router = useRouter()
+    let paged = []
+
 
     for (let i = 1; i <= pages; i++) {
         paged.push(i)
@@ -19,13 +20,13 @@ const Pagination = (props) => {
         document.cookie = `currentPage=${pageNumber}; secure; samesite=strict`;
     }
 
-    return (<PaginationWrapper>
+    return <PaginationWrapper>
         {paged.map((index) => <button
             className={index === activeClass ? 'active' : ''}
             onClick={() => onSetPageHandler(index)}
             disabled={activeClass === index}
             key={index}>{index}</button>)}
-    </PaginationWrapper>);
+    </PaginationWrapper>
 };
 
 export default Pagination;

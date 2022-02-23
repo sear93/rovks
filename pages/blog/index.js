@@ -37,9 +37,9 @@ const Blog = (props) => {
                             {props.posts?.map(post => <BlogItem key={post.id} post={post}/>)}
                         </div>
                     </div>
-                    <Pagination total={props.pagination.total}
-                                limit={props.pagination.limit}
-                                currentPage={props.pagination.page}
+                    <Pagination total={props.pagination.total_posts}
+                                limit={props.pagination.posts_per_page}
+                                currentPage={props.currentPage ?? props.pagination.current_page}
                     />
                 </div>
             </BlogWrapper>
@@ -49,9 +49,9 @@ const Blog = (props) => {
 
 export default Blog;
 
-export const getServerSideProps = async (ctx) => {
+export const getServerSideProps = async ({query, req}) => {
 
-    let page = ctx.query.page ?? ctx.req.cookies?.currentPage;
+    let page = query.page ?? req.cookies?.currentPage;
 
     const response = await axios.get(`${process.env.API_URI}/posts?count=9&size=large&page=${page}`)
 
@@ -63,7 +63,7 @@ export const getServerSideProps = async (ctx) => {
                 }
             }),
             pagination: response?.data?.pagination,
-            currentPage: page
+            currentPage: +page
         }
     }
 }

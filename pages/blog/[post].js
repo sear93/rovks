@@ -1,11 +1,11 @@
 import React from "react";
 import axios from "axios";
-import {PostWrapper} from "../../../styled/post";
-import {NewsComponent} from "../../../components/RelatedNews";
-import {changeDate} from "../../../helpers/utils";
 import Image from "next/image";
 import {motion} from "framer-motion";
-import {pageTransition, pageVariants} from "../../../styled/pageTransitions";
+import {pageTransition, pageVariants} from "../../styled/pageTransitions";
+import {changeDate} from "../../helpers/utils";
+import {NewsComponent} from "../../components/RelatedNews";
+import {PostWrapper} from "../../styled/post";
 
 const Post = ({post, relatedPosts}) => {
 
@@ -62,9 +62,9 @@ export const getStaticPaths = async () => {
     }
 }
 
-export const getStaticProps = async (cxt) => {
+export const getStaticProps = async (ctx) => {
 
-    const post = await axios.get(`${process.env.API_URI}/post/${cxt.params.post}`)
+    const post = await axios.get(`${process.env.API_URI}/post/${ctx.params.post}`)
     const category = post?.data?.category?.slug
     const relatedPosts = await axios.get(`${process.env.API_URI}/posts?category=${category}&size=large&count=3`)
 

@@ -46,7 +46,7 @@ export const Header = (props) => {
                         {props?.menuItems?.map(item => {
                             return (
                                 <li key={item.id} className="menu-item">
-                                    <Link prefetch={true} href={item?.slug}>
+                                    <Link href={item?.slug}>
                                         <a className={activeClass === item.id ? 'active disabled' : ''}
                                            onClick={() => setMenuItem(item.id)}
                                         >{item.title}</a>

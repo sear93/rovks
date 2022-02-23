@@ -9,8 +9,7 @@ module.exports = (phase) => {
             },
             images: {
                 domains: ['wp-dev.space', 'education-egor.local'],
-            },
-            unstable_runtimeJS: false
+            }
         }
     }
 
@@ -21,8 +20,7 @@ module.exports = (phase) => {
         },
         images: {
             domains: ['wp-dev.space', 'education-egor.local'],
-        },
-        unstable_runtimeJS: false
+        }
     }
     // i18n: {
     //     locales: ['en', 'fr', 'de', 'sv'],
