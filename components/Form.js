@@ -19,7 +19,7 @@ const Form = () => {
         })
 
         await delay(() => {
-            axios.post(`/api/quotes`, data, {
+            axios.post(`https://rovks-51bd7-default-rtdb.europe-west1.firebasedatabase.app/`, data, {
                 withCredentials: true
             })
                 .then(() => {
