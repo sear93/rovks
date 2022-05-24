@@ -13,32 +13,40 @@ const Form = () => {
 
     const onSubmitHandler = async (data) => {
 
-        // await ctx.showNotification({
-        //     message: "Pending",
-        //     status: "pending"
-        // })
+        await ctx.showNotification({
+            message: "Pending",
+            status: "pending"
+        })
 
-        axios.post('https://rovks-51bd7-default-rtdb.europe-west1.firebasedatabase.app/quotes.json', data)
-            .then((res) => console.log(res))
 
-        // await delay(() => {
-        //     axios.post(`/api/quotes`, data, {
-        //         withCredentials: true
-        //     })
-        //         .then(() => {
-        //             ctx.showNotification({
-        //                 message: "Success",
-        //                 status: "success"
-        //             })
-        //             reset();
-        //         })
-        //         .catch(err => ctx.showNotification({
-        //             message: err.message,
-        //             status: "error"
-        //         }))
-        //
-        // }, 1000)
-    };
+        await delay(() => {
+            axios.post(`https://rovks-51bd7-default-rtdb.europe-west1.firebasedatabase.app/quotes.json`, data)
+                .then(() => {
+                    ctx.showNotification({
+                        message: "Success",
+                        status: "success"
+                    })
+                    reset();
+                })
+                .catch(err => ctx.showNotification({
+                    message: err.message,
+                    status: "error"
+                }))
+
+        }, 1000)
+    }
+
+    // const onSubmitHandler = async (data) => {
+    //
+    //     // await ctx.showNotification({
+    //     //     message: "Pending",
+    //     //     status: "pending"
+    //     // })
+    //
+    //     axios.post('https://rovks-51bd7-default-rtdb.europe-west1.firebasedatabase.app/quotes.json', data)
+    //         .then((res) => console.log(res))
+    //
+    // };
 
     let maxLength = (length) => {
         return <p className={"error"}
